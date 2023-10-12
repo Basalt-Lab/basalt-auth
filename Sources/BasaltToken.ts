@@ -62,8 +62,8 @@ export class BasaltToken {
      * @param token
      * @returns {string}
      */
-    public getTokenUuid(token: string): string {;
-        return this.getHeader(token).uuid
+    public getTokenUuid(token: string): string {
+        return this.getHeader(token).uuid;
     }
 
     /**
@@ -154,7 +154,7 @@ export class BasaltToken {
             token: `${headerStringify}.${payloadStringify}.${signature}`,
             uuid: tokenUUid,
             publicKey: keyPair.publicKey,
-        }
+        };
     }
 
     /**
