@@ -1,7 +1,8 @@
 const esbuild = require('esbuild');
 const alias = require('esbuild-plugin-alias');
+
 const { resolve, join } = require('path');
-const basePath = resolve(__dirname) + '/Sources';
+const basePath = resolve(__dirname);
 
 async function run() {
     const options = {
@@ -9,19 +10,16 @@ async function run() {
         outfile: './Build/App.js',
         bundle: true,
         platform: 'node',
+        external: Object.keys(require('./package.json').dependencies) || [],
         loader: { '.ts': 'ts' },
         tsconfig: './tsconfig.json',
         color: true,
         plugins: [
             alias({
                 "@/*": join(basePath, "/*"),
-            })
+            }),
         ]
     };
-    const deps = require('./package.json').dependencies;
-    if (deps && deps.length > 0) {
-        options.external = Object?.keys(deps);
-    }
 
     const env = process.env.ESBUILD_ENV || 'dev';
 
