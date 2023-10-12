@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { spawn } = require('child_process');
 
-const filePath = './Build/index.js';
+const filePath = './Build/App.js';
 
 function checkFile() {
     fs.access(filePath, fs.constants.F_OK, (err) => {
@@ -11,7 +11,7 @@ function checkFile() {
         } else {
             console.log(`${filePath} existe, lancement de node --watch...`);
 
-            const childProcess = spawn('node', ['--watch', './Build/index.js'], {
+            const childProcess = spawn('node', ['--watch', './Build/App.js'], {
                 stdio: 'inherit',
                 env: {
                     ...process.env,
