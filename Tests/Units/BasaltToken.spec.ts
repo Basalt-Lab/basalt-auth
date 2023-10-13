@@ -1,16 +1,16 @@
 import { BasaltToken } from '@/BasaltToken';
-import { KeyGenerator } from '@/KeyGenerator';
-import { IKeyPairED25519, IBasaltTokenSignResult, IBasaltTokenHeader } from '@/Interfaces';
+import { BasaltKeyGenerator } from '../../Sources/BasaltKeyGenerator';
+import { IBasaltKeyPairED25519, IBasaltTokenSignResult, IBasaltTokenHeader } from '@/Interfaces';
 
 describe('BasaltToken', (): void => {
     let basaltToken: BasaltToken;
-    let keyGenerator: KeyGenerator;
-    let keyPair: IKeyPairED25519;
+    let keyGenerator: BasaltKeyGenerator;
+    let keyPair: IBasaltKeyPairED25519;
     let token: string;
 
     beforeAll((): void => {
         basaltToken = new BasaltToken();
-        keyGenerator = new KeyGenerator();
+        keyGenerator = new BasaltKeyGenerator();
         keyPair = keyGenerator.generateKeyPairED25519();
     });
 
@@ -140,7 +140,7 @@ describe('BasaltToken', (): void => {
 
         it('should throw an error if the token signature is invalid', (): void => {
             const payload: { someData: string } = { someData: 'data' };
-            const keyPair2: IKeyPairED25519 = keyGenerator.generateKeyPairED25519();
+            const keyPair2: IBasaltKeyPairED25519 = keyGenerator.generateKeyPairED25519();
             const result: IBasaltTokenSignResult = basaltToken.sign(60000, payload, 'Issuer', 'Audience', keyPair);
             expect((): void => {
                 basaltToken.verify(result.token, keyPair2.publicKey);
