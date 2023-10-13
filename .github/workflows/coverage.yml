@@ -23,5 +23,5 @@ jobs:
       - name: Upload Coverage
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.BASALT_AUTH_COVERAGE }}
+          github_token: ${{ secrets.BASALT_TOKEN }}
           publish_dir: ./coverage/lcov-report
