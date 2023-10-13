@@ -1,4 +1,4 @@
-export class Base64 {
+export class BasaltBase64 {
     /**
      * Decodes a base64 string to utf-8
      * @param value

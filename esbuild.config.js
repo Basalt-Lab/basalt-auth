@@ -4,13 +4,17 @@ const alias = require('esbuild-plugin-alias');
 const { resolve, join } = require('path');
 const basePath = resolve(__dirname);
 
+const pkg = require('./package.json');
+const dependencies = pkg.dependencies ? Object.keys(pkg.dependencies) : [];
+const external = dependencies || [];
+
 async function run() {
     const options = {
         entryPoints: ['./Sources/App.ts'],
         outfile: './Build/App.js',
         bundle: true,
         platform: 'node',
-        external: Object.keys(require('./package.json').dependencies) || [],
+        external: external,
         loader: { '.ts': 'ts' },
         tsconfig: './tsconfig.json',
         color: true,
