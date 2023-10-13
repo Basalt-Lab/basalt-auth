@@ -1,7 +1,7 @@
-import { IBasaltTokenHeader, IKeyPairED25519, IBasaltTokenSignResult } from '@/Interfaces';
-import { KeyGenerator } from '@/KeyGenerator';
+import { IBasaltTokenHeader, IBasaltKeyPairED25519, IBasaltTokenSignResult } from '@/Interfaces';
+import { BasaltKeyGenerator } from '@/BasaltKeyGenerator';
 import { Crypto, Json } from '@basalt-lab/basalt-core';
-import { Base64 } from '@/Base64';
+import { BasaltBase64 } from '@/BasaltBase64';
 
 export class BasaltToken {
 
@@ -26,7 +26,7 @@ export class BasaltToken {
      * @returns {string}
      */
     private buildHeader(tokenUUid: string, expirationMs: number, issuer: string, audience: string): string {
-        return Base64.encode(Json.stringify({
+        return BasaltBase64.encode(Json.stringify({
             uuid: tokenUUid,
             exp: new Date(Date.now() + expirationMs),
             issuer,
@@ -41,7 +41,7 @@ export class BasaltToken {
      * @returns {string}
      */
     private buildPayload<T extends object>(payload: T): string {
-        return Base64.encode(Json.stringify(payload));
+        return BasaltBase64.encode(Json.stringify(payload));
     }
 
     /**
@@ -103,7 +103,7 @@ export class BasaltToken {
         if (!this.structureIsValid(token))
             throw new Error('Invalid token structure');
         const [header]: string[] = token.split('.');
-        return Json.parse(Base64.decode(header));
+        return Json.parse(BasaltBase64.decode(header));
     }
 
     /**
@@ -116,7 +116,7 @@ export class BasaltToken {
         if (!this.structureIsValid(token))
             throw new Error('Invalid token structure');
         const [, payload]: string[] = token.split('.');
-        return Json.parse(Base64.decode(payload));
+        return Json.parse(BasaltBase64.decode(payload));
     }
 
     /**
@@ -142,7 +142,7 @@ export class BasaltToken {
         payload: T,
         issuer: string = 'YourAppName-Issuer',
         audience: string = 'YourAppName-Audience',
-        keyPair: IKeyPairED25519 = new KeyGenerator().generateKeyPairED25519()
+        keyPair: IBasaltKeyPairED25519 = new BasaltKeyGenerator().generateKeyPairED25519()
     ): IBasaltTokenSignResult {
         const tokenUUid: string = Crypto.randomUUID();
 
