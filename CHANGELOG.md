@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/Basalt-Lab/basalt-auth/compare/v1.0.1...v1.0.2) (2023-10-13)
+
+
+### Bug Fixes
+
+* release.. ([2201287](https://github.com/Basalt-Lab/basalt-auth/commit/22012870bd195c6d508dba63bc153a42a6c79e58))
+
 ## [1.0.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.0.0...v1.0.1) (2023-10-13)
 
 
