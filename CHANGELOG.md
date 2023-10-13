@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.0.0...v1.0.1) (2023-10-13)
+
+
+### Bug Fixes
+
+* change classes and interfaces name ([fc340f6](https://github.com/Basalt-Lab/basalt-auth/commit/fc340f6a74291af8cd0ee00a378c14a6f707f6f5))
+
 ## 1.0.0 (2023-10-13)
 
 
