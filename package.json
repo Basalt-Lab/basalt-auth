@@ -5,14 +5,14 @@
   "main": "Build/App.js",
   "types": "Build/App.d.ts",
   "scripts": {
-    "lint": "eslint . --ext .ts",
-    "fix-lint": "eslint --fix . --ext .ts",
-    "test": "jest -c jest.config.json --coverage",
-    "test:watch": "jest --watch -c jest.config.json",
+    "build::pkg": "npm run check-types && npm run create-types && ESBUILD_ENV=prod node esbuild.config.js",
     "check-types": "tsc --noEmit",
     "create-types": "tsc --emitDeclarationOnly && tsc-alias",
     "dev": "ESBUILD_ENV=dev node esbuild.config.js & node wait-and-watch.js",
-    "build::pkg": "npm run check-types && npm run create-types && ESBUILD_ENV=prod node esbuild.config.js"
+    "fix-lint": "eslint --fix . --ext .ts",
+    "lint": "eslint . --ext .ts",
+    "test": "jest -c jest.config.json --coverage",
+    "test:watch": "jest --watch -c jest.config.json"
   },
   "repository": {
     "type": "git",
