@@ -239,8 +239,13 @@
 <a name='L174'></a><a href='#L174'>174</a>
 <a name='L175'></a><a href='#L175'>175</a>
 <a name='L176'></a><a href='#L176'>176</a>
-<a name='L177'></a><a href='#L177'>177</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -296,6 +301,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -415,9 +423,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { IBasaltTokenHeader, IBasaltKeyPairED25519, IBasaltTokenSignResult } from '@/Interfaces';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { randomUUID, sign, verify } from 'crypto';
+&nbsp;
+import { IBasaltTokenHeader, IBasaltKeyPairED25519, IBasaltTokenSignResult } from '@/Interfaces';
 import { BasaltKeyGenerator } from '@/BasaltKeyGenerator';
-import { Crypto, BasaltJson } from '@basalt-lab/basalt-core';
 import { BasaltBase64 } from '@/BasaltBase64';
 &nbsp;
 export class BasaltToken {
@@ -443,7 +452,7 @@ export class BasaltToken {
      * @returns {string}
      */
     private buildHeader(tokenUUid: string, expirationMs: number, issuer: string, audience: string): string {
-        return BasaltBase64.encode(BasaltJson.stringify({
+        return BasaltBase64.encode(JSON.stringify({
             uuid: tokenUUid,
             exp: new Date(Date.now() + expirationMs),
             issuer,
@@ -458,7 +467,7 @@ export class BasaltToken {
      * @returns {string}
      */
     private buildPayload&lt;T extends object&gt;(payload: T): string {
-        return BasaltBase64.encode(BasaltJson.stringify(payload));
+        return BasaltBase64.encode(JSON.stringify(payload));
     }
 &nbsp;
     /**
@@ -466,12 +475,15 @@ export class BasaltToken {
      * @param header
      * @param payload
      * @param privateKey
-     * @param passPhrase
+     * @param passphrase
      * @private
      * @returns {string}
      */
-    private buildSignature(header: string, payload: string, privateKey: string, passPhrase: string): string {
-        return Crypto.sign(header + '.' + payload, privateKey, passPhrase);
+    private buildSignature(header: string, payload: string, privateKey: string, passphrase: string): string {
+        return sign(null, Buffer.from(header + '.' + payload), {
+            key: privateKey,
+            passphrase
+        }).toString('base64');
     }
 &nbsp;
     /**
@@ -520,7 +532,7 @@ export class BasaltToken {
         if (!this.structureIsValid(token))
             throw new Error('Invalid token structure');
         const [header]: string[] = token.split('.');
-        return BasaltJson.parse(BasaltBase64.decode(header));
+        return JSON.parse(BasaltBase64.decode(header));
     }
 &nbsp;
     /**
@@ -533,7 +545,7 @@ export class BasaltToken {
         if (!this.structureIsValid(token))
             throw new Error('Invalid token structure');
         const [, payload]: string[] = token.split('.');
-        return BasaltJson.parse(BasaltBase64.decode(payload));
+        return JSON.parse(BasaltBase64.decode(payload));
     }
 &nbsp;
     /**
@@ -561,7 +573,7 @@ export class BasaltToken {
         audience: string = 'YourAppName-Audience',
         keyPair: IBasaltKeyPairED25519 = new BasaltKeyGenerator().generateKeyPairED25519()
     ): IBasaltTokenSignResult {
-        const tokenUUid: string = Crypto.randomUUID();
+        const tokenUUid: string = randomUUID();
 &nbsp;
         const headerStringify: string = this.buildHeader(tokenUUid, expirationMs, issuer, audience);
         const payloadStringify: string = this.buildPayload(payload);
@@ -587,7 +599,7 @@ export class BasaltToken {
             throw new Error('Token expired');
 &nbsp;
         const [header, payload, signature]: string[] = token.split('.');
-        if (!Crypto.verify(header + '.' + payload, signature, publicKey))
+        if (!verify(null, Buffer.from(header + '.' + payload), publicKey, Buffer.from(signature, 'base64')))
             throw new Error('Invalid token signature');
     }
 }
@@ -598,7 +610,7 @@ export class BasaltToken {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-10-23T21:07:30.421Z
+                at 2023-10-26T13:31:03.145Z
             </div>
         <script src="prettify.js"></script>
         <script>
