@@ -1,5 +1,5 @@
 import { BasaltToken } from '@/BasaltToken';
-import { BasaltKeyGenerator } from '../../Sources/BasaltKeyGenerator';
+import { BasaltKeyGenerator } from '@/BasaltKeyGenerator';
 import { IBasaltKeyPairED25519, IBasaltTokenSignResult, IBasaltTokenHeader } from '@/Interfaces';
 
 describe('BasaltToken', (): void => {
