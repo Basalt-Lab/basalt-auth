@@ -25,27 +25,7 @@ Only the public key and the token are retained, ensuring that interactions remai
 
 ## 🌟 Features
 
-- `BasaltToken` encompasses a robust suite of functionalities tailored for secure token handling and authentication:
-
-  - **Token Structure Validation**: Ensures the integrity of the token's structure, verifying that it contains all the necessary components.
-
-  - **Dynamic Header Construction**: Assembles a token header with vital metadata, including unique identifiers and expiration details, enhancing tracking and security.
-
-  - **Flexible Payload Management**: Encodes a payload into the token, allowing for a broad range of information to be securely embedded within.
-
-  - **Robust Signature Generation**: Utilizes private keys to generate an indisputable signature, confirming the authenticity of the token's content.
-
-  - **Comprehensive Token Information Retrieval**: Grants access to crucial token information such as UUID, expiration date, audience, and issuer, thereby enhancing validation processes and usage context.
-
-  - **Advanced Token Parsing**: Retrieves the token's header or payload, decoding its content for further internal operations or validation procedures.
-
-  - **Expiration Check Utility**: Quickly determines the validity period of a token, ensuring interactions rely on timely and relevant authentication data.
-
-  - **Token Signing Ceremony**: Seamlessly signs tokens with essential information, utilizing a generated key pair for heightened security measures.
-
-  - **Integrity and Timeliness Verification**: Validates a token's signature and checks its expiration, confirming the token's legitimacy and ongoing relevance before acceptance.
-
-These features collectively ensure that `BasaltToken` delivers a comprehensive, secure, and highly adaptable token management experience, serving diverse authentication requirements and operational contexts.
+You can find the list of features in the [documentation](https://basalt-lab.github.io/basalt-doc/index.html).
 
 ## 🔧 Installation
 
