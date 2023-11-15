@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.0.3](https://github.com/Basalt-Lab/basalt-auth/compare/v1.0.2...v1.0.3) (2023-11-15)
+
+
+### Code Refactoring
+
+* clean and remove basalt-core ([d110917](https://github.com/Basalt-Lab/basalt-auth/commit/d1109174dc41ba23dfdf9e18ce0ca924e848698e))
+
+
+### Build System
+
+* update dependancies and change node version ([3475779](https://github.com/Basalt-Lab/basalt-auth/commit/3475779c9be1896ac8f4af5a1d3a51f76657a4d1))
+
+
+### Continuous Integration
+
+* update release-and-publish github action ([55e6ed4](https://github.com/Basalt-Lab/basalt-auth/commit/55e6ed4dd76bd454216cd354ead7913999e2a767))
+
+
+### Documentation
+
+* Add readme ([c16e8f9](https://github.com/Basalt-Lab/basalt-auth/commit/c16e8f9b916c74917e0b00ccb1fb1f12d7c01cd6))
+* update JSDoc ([020f6cf](https://github.com/Basalt-Lab/basalt-auth/commit/020f6cf6198a1cb6348df592544e616a8c676977))
+
+
+### Miscellaneous Chores
+
+* Add keywords ([74a9ed5](https://github.com/Basalt-Lab/basalt-auth/commit/74a9ed5a45dac32c4376b5e867c489433fbe790e))
+
 ## [1.0.2](https://github.com/Basalt-Lab/basalt-auth/compare/v1.0.1...v1.0.2) (2023-10-13)
 
 
