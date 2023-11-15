@@ -1,4 +1,4 @@
-import { BasaltKeyGenerator } from '../../Sources/BasaltKeyGenerator';
+import { BasaltKeyGenerator } from '@/BasaltKeyGenerator';
 import { IBasaltKeyPairED25519 } from '@/Interfaces';
 
 describe('BasaltKeyGenerator', (): void => {
