@@ -19,7 +19,10 @@
     "url": "git+https://github.com/Basalt-Lab/basalt-auth.git"
   },
   "keywords": [
-    "basalt-auth"
+    "basalt-auth",
+    "basalt",
+    "auth",
+    "authentication"
   ],
   "author": "Ruby",
   "license": "MIT",
