@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.4](https://github.com/Basalt-Lab/basalt-auth/compare/v1.0.3...v1.0.4) (2024-02-19)
+
+
+### Build System
+
+* Update .nvmrc and .npmignore files and packages ([0db5c68](https://github.com/Basalt-Lab/basalt-auth/commit/0db5c688088b01341bc49b9ba4b41f52002261b5))
+
+
+### Continuous Integration
+
+* Update Node version in workflows ([c31e857](https://github.com/Basalt-Lab/basalt-auth/commit/c31e8577878d7da1efdcd9561fb2224eed1850d0))
+
 ## [1.0.3](https://github.com/Basalt-Lab/basalt-auth/compare/v1.0.2...v1.0.3) (2023-11-15)
 
 
