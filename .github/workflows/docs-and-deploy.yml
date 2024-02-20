@@ -1,5 +1,5 @@
-name: Test and Create badge to branch coverage
-run-name: Test and Create badge to branch coverage
+name: Generate docs and deploy to gh-pages
+run-name:  Generate docs and deploy to gh-pages
 on:
   push:
     branches:
@@ -21,11 +21,11 @@ jobs:
       - name: Install Dependencies
         run: npm install
   
-      - name: Run Tests
-        run: npm run test
+      - name: Generate Docs
+        run: npm run docs
 
-      - name: Generating coverage badges
-        uses: jpb06/jest-badges-action@latest
+      - name: Upload Coverage
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branches: 'main'
-    
+          github_token: ${{ secrets.BASALT_TOKEN }}
+          publish_dir: ./docs
