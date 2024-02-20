@@ -5,14 +5,17 @@
   "main": "Build/App.js",
   "types": "Build/App.d.ts",
   "scripts": {
+    "build::pkg:windows": "npm run check-types && npm run create-types && cross-env ESBUILD_ENV=prod node esbuild.config.js",
     "build::pkg": "npm run check-types && npm run create-types && ESBUILD_ENV=prod node esbuild.config.js",
     "check-types": "tsc --noEmit",
     "create-types": "tsc --emitDeclarationOnly && tsc-alias",
+    "dev::windows": "start cross-env ESBUILD_ENV=dev node esbuild.config.js && start node wait-and-watch.js",
     "dev": "ESBUILD_ENV=dev node esbuild.config.js & node wait-and-watch.js",
+    "docs": "typedoc",
     "fix-lint": "eslint --fix . --ext .ts",
     "lint": "eslint . --ext .ts",
-    "test": "jest -c jest.config.json --ci --coverage",
-    "test:watch": "jest --watch -c jest.config.json"
+    "test:watch": "jest --watch -c jest.config.json",
+    "test": "jest -c jest.config.json --ci --coverage"
   },
   "repository": {
     "type": "git",
@@ -36,6 +39,7 @@
     "@types/node": "^20.8.4",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
+    "cross-env": "^7.0.3",
     "esbuild": "^0.19.4",
     "esbuild-plugin-alias": "^0.2.1",
     "eslint": "^8.50.0",
