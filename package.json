@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/Basalt-Lab/basalt-auth#readme",
   "devDependencies": {
+    "@microsoft/tsdoc": "^0.14.2",
     "@types/jest": "^29.5.5",
     "@types/node": "^20.8.4",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
@@ -38,9 +39,11 @@
     "esbuild": "^0.19.4",
     "esbuild-plugin-alias": "^0.2.1",
     "eslint": "^8.50.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.1",
     "tsc-alias": "^1.8.8",
+    "typedoc": "^0.25.8",
     "typescript": "^5.2.2"
   }
 }
