@@ -15,7 +15,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint/eslint-plugin",
+        "eslint-plugin-tsdoc"
     ],
     "ignorePatterns": ["node_modules/*", "wait-and-watch.js", "esbuild.config.js"],
     "rules": {
@@ -35,6 +36,7 @@
             "error",
             "always"
         ],
+        "tsdoc/syntax": "error",
         "curly": ["error", "multi", "consistent"],
         "constructor-super": "error",
         "for-direction": "error",

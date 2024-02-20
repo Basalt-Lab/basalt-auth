@@ -1,8 +1,25 @@
 import { randomUUID, sign, verify } from 'crypto';
 
-import { IBasaltTokenHeader, IBasaltKeyPairED25519, IBasaltTokenSignResult } from '@/Interfaces';
-import { BasaltKeyGenerator } from '@/BasaltKeyGenerator';
-import { BasaltBase64 } from '@/BasaltBase64';
+import { Base64, KeyGenerator } from '@/Common';
+import { BasaltTokenErrorCodes, ErrorBasaltToken } from '@/Common/Errors';
+import { IBasaltTokenHeader, IBasaltTokenSignResult, IKeyPairED25519 } from '@/Interfaces';
+
+
+/**
+ * Enumeration of token expiry times in milliseconds.
+ */
+export enum BasaltTokenExpiry {
+    HALF_HOUR = 1800000,
+    ONE_HOUR = 3600000,
+    TWO_HOURS = 7200000,
+    FOUR_HOURS = 14400000,
+    FIVE_HOURS = 18000000,
+    SIX_HOURS = 21600000,
+    TWELVE_HOURS = 43200000,
+    ONE_DAY = 86400000,
+    ONE_WEEK = 604800000,
+
+}
 
 /**
  * Class to manage the creation, signing, and verification of authentication tokens.
@@ -13,9 +30,9 @@ export class BasaltToken {
      * Validates the structure of the provided token.
      * A valid token must contain three parts separated by dots: header, payload, and signature.
      *
-     * @param {string} token - The authentication token to validate.
-     * @returns {boolean} True if the token structure is valid, false otherwise.
-     * @private
+     * @param token - The authentication token to validate.
+     * 
+     * @returns True if the token structure is valid, false otherwise.
      */
     private structureIsValid(token: string): boolean {
         const [header, payload, signature]: string[] = token.split('.');
@@ -25,15 +42,15 @@ export class BasaltToken {
     /**
      * Constructs a token header with necessary claims.
      *
-     * @param {string} tokenUUid - The unique identifier for the token.
-     * @param {number} expirationMs - The token's expiry time in milliseconds from the current time.
-     * @param {string} issuer - The issuer claim identifies the principal that issued the token.
-     * @param {string} audience - The audience claim identifies the recipients that the token is intended for.
-     * @returns {string} A Base64-encoded JSON string representing the token header.
-     * @private
+     * @param tokenUUid - The unique identifier for the token.
+     * @param expirationMs - The token's expiry time in milliseconds from the current time.
+     * @param issuer - The issuer claim identifies the principal that issued the token.
+     * @param audience - The audience claim identifies the recipients that the token is intended for.
+     * 
+     * @returns A Base64-encoded JSON string representing the token header.
      */
     private buildHeader(tokenUUid: string, expirationMs: number, issuer: string, audience: string): string {
-        return BasaltBase64.encode(JSON.stringify({
+        return Base64.encode(JSON.stringify({
             uuid: tokenUUid,
             exp: new Date(Date.now() + expirationMs),
             issuer,
@@ -44,24 +61,24 @@ export class BasaltToken {
     /**
      * Constructs a token payload.
      *
-     * @param {T} payload - The payload of the token, containing the claims about the entity (typically the user).
-     * @returns {string} A Base64-encoded JSON string representing the token payload.
-     * @private
-     * @template T - The type of the payload.
+     * @param payload - The payload of the token, containing the claims about the entity (typically the user).
+     * @typeParam T - The type of the payload.
+     * 
+     * @returns A Base64-encoded JSON string representing the token payload.
      */
     private buildPayload<T extends object>(payload: T): string {
-        return BasaltBase64.encode(JSON.stringify(payload));
+        return Base64.encode(JSON.stringify(payload));
     }
 
     /**
      * Constructs a token signature using the provided header, payload, and private key.
      *
-     * @param {string} header - The Base64-encoded token header.
-     * @param {string} payload - The Base64-encoded token payload.
-     * @param {string} privateKey - The private key used to sign the token.
-     * @param {string} passphrase - The passphrase of the private key, if applicable.
-     * @returns {string} The token's digital signature.
-     * @private
+     * @param header - The Base64-encoded token header.
+     * @param payload - The Base64-encoded token payload.
+     * @param privateKey - The private key used to sign the token.
+     * @param passphrase - The passphrase of the private key, if applicable.
+     * 
+     * @returns The token's digital signature.
      */
     private buildSignature(header: string, payload: string, privateKey: string, passphrase: string): string {
         return sign(null, Buffer.from(header + '.' + payload), {
@@ -73,9 +90,11 @@ export class BasaltToken {
     /**
      * Retrieves the unique identifier (UUID) from the token.
      *
-     * @param {string} token - The authentication token.
-     * @returns {string} The UUID of the token.
-     * @throws {Error} If the token structure is invalid.
+     * @param token - The authentication token.
+     * 
+     * @returns The UUID of the token.
+     * 
+     * @throws {@link ErrorBasaltToken}If the token structure is invalid.
      */
     public getTokenUuid(token: string): string {
         return this.getHeader(token).uuid;
@@ -83,8 +102,11 @@ export class BasaltToken {
 
     /**
      * Get the token expiration date
-     * @param token
-     * @returns {Date}
+     * @param token - The authentication token.
+     * 
+     * @returns The expiration date of the token.
+     * 
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
      */
     public getExpirationDate(token: string): Date {
         return new Date(this.getHeader(token).exp);
@@ -92,8 +114,11 @@ export class BasaltToken {
 
     /**
      * Get the token audience
-     * @param token
-     * @returns {string}
+     * @param token - The authentication token.
+     * 
+     * @returns The intended audience of the token.
+     * 
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
      */
     public getAudience(token: string): string {
         return this.getHeader(token).audience;
@@ -101,8 +126,11 @@ export class BasaltToken {
 
     /**
      * Get the token issuer
-     * @param token
-     * @returns {string}
+     * @param token - The authentication token.
+     * 
+     * @returns The issuer of the token.
+     * 
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
      */
     public getIssuer(token: string): string {
         return this.getHeader(token).issuer;
@@ -111,37 +139,44 @@ export class BasaltToken {
     /**
      * Parses the token header and returns it.
      *
-     * @param {string} token - The authentication token.
-     * @returns {IBasaltTokenHeader} The parsed header of the token.
-     * @throws {Error} If the token structure is invalid.
+     * @param token - The authentication token.
+     * 
+     * @returns The parsed header of the token.
+     * 
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
      */
     public getHeader(token: string): IBasaltTokenHeader {
         if (!this.structureIsValid(token))
-            throw new Error('Invalid token structure');
+            throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_INVALID_STRUCTURE);
         const [header]: string[] = token.split('.');
-        return JSON.parse(BasaltBase64.decode(header));
+        return JSON.parse(Base64.decode(header));
     }
 
     /**
      * Parses the token payload and returns it.
      *
-     * @param {string} token - The authentication token.
-     * @returns {T} The parsed payload of the token.
-     * @throws {Error} If the token structure is invalid.
-     * @template T - The expected type of the payload.
+     * @typeParam T - The expected type of the payload.
+     * @param token - The authentication token.
+     * 
+     * @returns The parsed payload of the token.
+     * 
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
      */
     public getPayload<T extends object>(token: string): T {
         if (!this.structureIsValid(token))
-            throw new Error('Invalid token structure');
+            throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_INVALID_STRUCTURE);
         const [, payload]: string[] = token.split('.');
-        return JSON.parse(BasaltBase64.decode(payload));
+        return JSON.parse(Base64.decode(payload));
     }
 
     /**
      * Determines whether the token has expired.
      *
-     * @param {string} token - The authentication token.
-     * @returns {boolean} True if the token has expired, false otherwise.
+     * @param token - The authentication token.
+     * 
+     * @returns True if the token has expired, false otherwise.
+     * 
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
      */
     public isExpired(token: string): boolean {
         return new Date(this.getHeader(token).exp) < new Date();
@@ -150,30 +185,35 @@ export class BasaltToken {
     /**
      * Sign a token with the provided payload, issuer, audience, and key pair.
      *
-     * @param {number} expirationMs - The amount of milliseconds after which the token should expire.
-     * @param {T} payload - The payload of the token, which contains the claims for the token.
-     * @param {string} [issuer='YourAppName-Issuer'] - The issuer of the token, default is 'YourAppName-Issuer'.
-     * @param {string} [audience='YourAppName-Audience'] - The intended audience of the token, default is 'YourAppName-Audience'.
-     * @param {IBasaltKeyPairED25519} [keyPair=new BasaltKeyGenerator().generateKeyPairED25519()] - The ED25519 key pair to sign the token with.
+     * @typeParam T - The type of the payload.
+     * @param payload - The payload of the token, which contains the claims for the token.
+     * @param expirationMs - The amount of milliseconds after which the token should expire. (default is 1 hour)
+     * @param issuer - The issuer of the token. (default is 'Basalt-Issuer')
+     * @param audience - [audience='YourAppName-Audience'] - The intended audience of the token. (default is 'Basalt-Audience')
      *
-     * @returns {IBasaltTokenSignResult} - An object containing the signed token, its UUID, and the public key.
-     *
-     * @throws {Error} If the key pair is invalid or the token cannot be signed for any other reason.
+     * @returns An object containing the signed token, its UUID, and the public key. (The private key is not returned for security reasons, save only the public key and the UUID of the token.)
      *
      * @example
-     * const tokenResult = basaltToken.sign(3600000, { user: 'johndoe' }, 'MyApp', 'MyAppAudience');
+     * Basic usage:
+     * ```typescript
+     * const tokenResult = basaltToken.sign(\{ user: 'johndoe' \});
      * console.log(tokenResult.token); // The signed token
-     *
-     * @template T - The type of the payload.
+     * ```
+     * @example
+     * Custom expiration time:
+     * ```typescript
+     * const tokenResult = basaltToken.sign(\{ user: 'johndoe' \}, 1234); // U can use BasaltTokenExpiry enum [30mn, 1h, 2h, 4h, 5h, 6h, 12h, 1d, 1w]
+     * console.log(tokenResult.token); // The signed token
+     * ```
      */
     public sign<T extends object>(
-        expirationMs: number,
         payload: T,
-        issuer: string = 'YourAppName-Issuer',
-        audience: string = 'YourAppName-Audience',
-        keyPair: IBasaltKeyPairED25519 = new BasaltKeyGenerator().generateKeyPairED25519()
+        expirationMs: number = BasaltTokenExpiry.ONE_HOUR,
+        issuer: string = 'Basalt-Issuer',
+        audience: string = 'Basalt-Audience'
     ): IBasaltTokenSignResult {
         const tokenUUid: string = randomUUID();
+        const keyPair: IKeyPairED25519 = new KeyGenerator().generateKeyPairED25519();
 
         const headerStringify: string = this.buildHeader(tokenUUid, expirationMs, issuer, audience);
         const payloadStringify: string = this.buildPayload(payload);
@@ -189,18 +229,20 @@ export class BasaltToken {
     /**
      * Verifies the signature and expiration date of the token.
      *
-     * @param {string} token - The authentication token to verify.
-     * @param {string} publicKey - The public key corresponding to the private key used to sign the token.
-     * @throws {Error} If the token structure is invalid, if the token has expired, or if the signature does not match.
+     * @param token - The authentication token to verify.
+     * @param publicKey - The public key corresponding to the private key used to sign the token.
+     * 
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
+     * @throws {@link ErrorBasaltToken} If the token has expired.
+     * @throws {@link ErrorBasaltToken} If the token signature is invalid.
      */
     public verify(token: string, publicKey: string): void {
         if (!this.structureIsValid(token))
-            throw new Error('Invalid token structure');
+            throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_INVALID_STRUCTURE);
         if (this.isExpired(token))
-            throw new Error('Token expired');
-
+            throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_IS_EXPIRED);
         const [header, payload, signature]: string[] = token.split('.');
         if (!verify(null, Buffer.from(header + '.' + payload), publicKey, Buffer.from(signature, 'base64')))
-            throw new Error('Invalid token signature');
+            throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_SIGNATURE_INVALID);
     }
 }
