@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.1.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.0.4...v1.1.0) (2024-02-20)
+
+
+### Features
+
+* : Add new files and update existing files (DOC, improvement..) ([241db8b](https://github.com/Basalt-Lab/basalt-auth/commit/241db8bd6bf5f9c8245476499ef5cad8d16f209b))
+
+
+### Build System
+
+* : Add build and dev scripts for Windows environment + add script to gen doc ([6a90678](https://github.com/Basalt-Lab/basalt-auth/commit/6a90678ac6965dbbf07149e338d0e428f2c03c50))
+* Add documentation generation and update dependencies ([50cbc0d](https://github.com/Basalt-Lab/basalt-auth/commit/50cbc0db1fb3e63e85c0ccb8d6e5cc9352888af0))
+
+
+### Tests
+
+* : Add coverage reporters to Jest config (JSON) and update test script in package json ([1f332ea](https://github.com/Basalt-Lab/basalt-auth/commit/1f332eaee3e46bd03924f3336bedba6579e34968))
+* : Add KeyGenerator.spec.ts and ErrorEntity.spec.ts, Remove BasaltKeyGenerator.spec.ts and correction of tests ([25bb133](https://github.com/Basalt-Lab/basalt-auth/commit/25bb1335879030433df43a7bf3d69cc1123d794e))
+
+
+### Continuous Integration
+
+* Update workflows for coverage and docs ([52be9a0](https://github.com/Basalt-Lab/basalt-auth/commit/52be9a03e828cf67a9a6faa253d6e286923c15a7))
+
+
+### Documentation
+
+* : Refactor README.md file structure and update Basalt-auth description ([82aeeaf](https://github.com/Basalt-Lab/basalt-auth/commit/82aeeafc445c9297902002acac93fc34d0270e32))
+
 ## [1.0.4](https://github.com/Basalt-Lab/basalt-auth/compare/v1.0.3...v1.0.4) (2024-02-19)
 
 
