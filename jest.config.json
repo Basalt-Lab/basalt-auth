@@ -1,6 +1,7 @@
 {
   "displayName": "basalt-auth-tests",
   "preset": "ts-jest",
+  "coverageReporters": ["json-summary"],
   "coverageDirectory": "./coverage",
   "moduleNameMapper": {
     "^@/(.*)$": "<rootDir>/Sources/$1"

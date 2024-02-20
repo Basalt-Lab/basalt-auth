@@ -13,12 +13,19 @@
     "pnpm-lock.yaml",
     "wait-and-watch.js"
   ],
+  "typedocOptions": {
+    "entryPoints": [
+      "Sources/**/*.ts"
+    ],
+    "out": "docs",
+  },
   "compilerOptions": {
     "declaration": true,
     "baseUrl": "./Sources",
     "paths": {
       "@/*": ["./*"]
     },
+    "forceConsistentCasingInFileNames": true,
     "allowUmdGlobalAccess": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
