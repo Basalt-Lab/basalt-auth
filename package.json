@@ -11,7 +11,7 @@
     "dev": "ESBUILD_ENV=dev node esbuild.config.js & node wait-and-watch.js",
     "fix-lint": "eslint --fix . --ext .ts",
     "lint": "eslint . --ext .ts",
-    "test": "jest -c jest.config.json --coverage",
+    "test": "jest -c jest.config.json --ci --coverage",
     "test:watch": "jest --watch -c jest.config.json"
   },
   "repository": {
