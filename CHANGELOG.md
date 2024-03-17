@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.1...v1.1.2) (2024-03-17)
+
+
+### Bug Fixes
+
+* correction ci ([3440433](https://github.com/Basalt-Lab/basalt-auth/commit/3440433af0a42162d6714dfb38167926e28adf7c))
+
 ## [1.1.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.0...v1.1.1) (2024-03-17)
 
 
