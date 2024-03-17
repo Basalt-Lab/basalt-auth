@@ -4,7 +4,7 @@
   "coverageReporters": ["json-summary"],
   "coverageDirectory": "./coverage",
   "moduleNameMapper": {
-    "^@/(.*)$": "<rootDir>/Sources/$1"
+    "^@/(.*)$": "<rootDir>/Source/$1"
   },
   "testMatch": [
     "**/?(*.)+(spec).ts"
