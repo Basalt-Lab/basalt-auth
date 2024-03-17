@@ -2,10 +2,10 @@
 .github
 .idea
 .nvmrc
-Sources/
-Tests/
+.vscode
 coverage/
-esbuild.config.js
+docs/
+esbuild.config.ts
+Source/
+Tests/
 tsconfig.json
-wait-and-watch.js
-```
