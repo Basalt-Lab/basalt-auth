@@ -8,8 +8,8 @@ export interface IBasaltTokenHeader {
     exp: number;
 
     /**
-     * uuid of the token
-    */
+     * Uuid of the token
+     */
     uuid: string;
 
     /**
