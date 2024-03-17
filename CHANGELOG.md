@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.2...v1.1.3) (2024-03-17)
+
+
+### Code Refactoring
+
+* change npmignore ([d098074](https://github.com/Basalt-Lab/basalt-auth/commit/d0980740dbbabd6260107e59abb7230c7835d121))
+
 ## [1.1.2](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.1...v1.1.2) (2024-03-17)
 
 
