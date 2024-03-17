@@ -1,18 +1,16 @@
-import { BasaltToken, BasaltTokenExpiry } from '../../Sources/BasaltToken';
-import { KeyGenerator } from '../../Sources/Common';
-import { ErrorBasaltToken, BasaltTokenErrorCodes } from '../../Sources/Common/Errors';
-import { IKeyPairED25519, IBasaltTokenSignResult, IBasaltTokenHeader } from '../../Sources/Interfaces';
+import { BasaltToken, BasaltTokenExpiry } from '../../Source/BasaltToken';
+import { generateKeyPairED25519 } from '../../Source/Common/Tools';
+import { ErrorBasaltToken, BasaltTokenErrorCodes } from '../../Source/Common/Errors';
+import { IKeyPairED25519, IBasaltTokenSignResult, IBasaltTokenHeader } from '../../Source/Interfaces';
 
 describe('BasaltToken', (): void => {
     let basaltToken: BasaltToken;
-    let keyGenerator: KeyGenerator;
     let keyPair: IKeyPairED25519;
     let token: string;
 
     beforeAll((): void => {
         basaltToken = new BasaltToken();
-        keyGenerator = new KeyGenerator();
-        keyPair = keyGenerator.generateKeyPairED25519();
+        keyPair = generateKeyPairED25519();
     });
 
     describe('getTokenUuid', (): void => {
