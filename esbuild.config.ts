@@ -31,7 +31,7 @@ const options: BuildOptions = {
     outfile: './Build/App.js',
     bundle: true,
     platform: 'node',
-    external: external,
+    external,
     loader: { '.ts': 'ts' },
     tsconfig: './tsconfig.json',
     color: true,
