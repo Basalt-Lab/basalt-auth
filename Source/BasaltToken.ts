@@ -1,9 +1,8 @@
 import { randomUUID, sign, verify } from 'crypto';
 
-import { Base64, KeyGenerator } from '@/Common';
+import { base64Decode, base64Encode, generateKeyPairED25519 } from '@/Common/Tools';
 import { BasaltTokenErrorCodes, ErrorBasaltToken } from '@/Common/Errors';
-import { IBasaltTokenHeader, IBasaltTokenSignResult, IKeyPairED25519 } from '@/Interfaces';
-
+import { type IBasaltTokenHeader, type IBasaltTokenSignResult, type IKeyPairED25519 } from '@/Interfaces';
 
 /**
  * Enumeration of token expiry times in milliseconds.
@@ -18,7 +17,6 @@ export enum BasaltTokenExpiry {
     TWELVE_HOURS = 43200000,
     ONE_DAY = 86400000,
     ONE_WEEK = 604800000,
-
 }
 
 /**
@@ -50,7 +48,7 @@ export class BasaltToken {
      * @returns A Base64-encoded JSON string representing the token header.
      */
     private buildHeader(tokenUUid: string, expirationMs: number, issuer: string, audience: string): string {
-        return Base64.encode(JSON.stringify({
+        return base64Encode(JSON.stringify({
             uuid: tokenUUid,
             exp: new Date(Date.now() + expirationMs),
             issuer,
@@ -67,7 +65,7 @@ export class BasaltToken {
      * @returns A Base64-encoded JSON string representing the token payload.
      */
     private buildPayload<T extends object>(payload: T): string {
-        return Base64.encode(JSON.stringify(payload));
+        return base64Encode(JSON.stringify(payload));
     }
 
     /**
@@ -81,7 +79,7 @@ export class BasaltToken {
      * @returns The token's digital signature.
      */
     private buildSignature(header: string, payload: string, privateKey: string, passphrase: string): string {
-        return sign(null, Buffer.from(header + '.' + payload), {
+        return sign(null, Buffer.from(`${header}.${payload}`), {
             key: privateKey,
             passphrase
         }).toString('base64');
@@ -149,7 +147,9 @@ export class BasaltToken {
         if (!this.structureIsValid(token))
             throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_INVALID_STRUCTURE);
         const [header]: string[] = token.split('.');
-        return JSON.parse(Base64.decode(header));
+        return JSON.parse(
+            base64Decode(header as string)
+        ) as IBasaltTokenHeader;
     }
 
     /**
@@ -166,7 +166,9 @@ export class BasaltToken {
         if (!this.structureIsValid(token))
             throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_INVALID_STRUCTURE);
         const [, payload]: string[] = token.split('.');
-        return JSON.parse(Base64.decode(payload));
+        return JSON.parse(
+            base64Decode(payload as string)
+        ) as T;
     }
 
     /**
@@ -213,7 +215,7 @@ export class BasaltToken {
         audience: string = 'Basalt-Audience'
     ): IBasaltTokenSignResult {
         const tokenUUid: string = randomUUID();
-        const keyPair: IKeyPairED25519 = new KeyGenerator().generateKeyPairED25519();
+        const keyPair: IKeyPairED25519 = generateKeyPairED25519();
 
         const headerStringify: string = this.buildHeader(tokenUUid, expirationMs, issuer, audience);
         const payloadStringify: string = this.buildPayload(payload);
@@ -242,7 +244,7 @@ export class BasaltToken {
         if (this.isExpired(token))
             throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_IS_EXPIRED);
         const [header, payload, signature]: string[] = token.split('.');
-        if (!verify(null, Buffer.from(header + '.' + payload), publicKey, Buffer.from(signature, 'base64')))
+        if (!verify(null, Buffer.from(`${header}.${payload}`), publicKey, Buffer.from(signature as string, 'base64')))
             throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_SIGNATURE_INVALID);
     }
 }

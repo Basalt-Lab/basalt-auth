@@ -50,7 +50,7 @@ export class ErrorEntity extends Error {
      * Gets the error name.
      * @returns The error name.
      */
-    public get name(): string {
+    public override get name(): string {
         return this._name;
     }
 

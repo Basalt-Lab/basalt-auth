@@ -12,5 +12,4 @@ export enum BasaltTokenErrorCodes {
 /**
  * Represents an error that occurs during the token generation process.
  */
-export class ErrorBasaltToken extends ErrorEntity {
-}
+export class ErrorBasaltToken extends ErrorEntity {}
