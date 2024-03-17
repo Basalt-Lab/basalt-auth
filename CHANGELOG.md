@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.1.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.0...v1.1.1) (2024-03-17)
+
+
+### Code Refactoring
+
+* improvement to multiparadigm + correction eslint ([5ef2ff9](https://github.com/Basalt-Lab/basalt-auth/commit/5ef2ff934b4bee616dc28eb21c6041214ce8228a))
+
+
+### Build System
+
+* : Update dependencies and build configuration ([6bb4cd3](https://github.com/Basalt-Lab/basalt-auth/commit/6bb4cd349013dbb107c84c51d3a38a06ee747c92))
+
+
+### Tests
+
+* test correction ([497da0f](https://github.com/Basalt-Lab/basalt-auth/commit/497da0fc2f7e755ae6dfb39abd03d8c2f70e33c8))
+
 ## [1.1.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.0.4...v1.1.0) (2024-02-20)
 
 
