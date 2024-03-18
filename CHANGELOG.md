@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.3...v1.1.4) (2024-03-18)
+
+
+### Bug Fixes
+
+* remove console log + reindent ([896d599](https://github.com/Basalt-Lab/basalt-auth/commit/896d599066070250917a58838be722e68441cd2e))
+
 ## [1.1.3](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.2...v1.1.3) (2024-03-17)
 
 
