@@ -40,21 +40,21 @@ const options: BuildOptions = {
 const args = process.argv.slice(2);
 (async () => {
     switch (args[0]) {
-        case 'watch':
-            options.sourcemap = 'linked';
-            await esbuild.build(options);
-            const ctx = await esbuild.context(options);
-            await ctx.watch();
-            break;
-        case 'prod-build':
-            options.minify = true;
-            options.keepNames = true;
-            options.treeShaking = true;
-            await esbuild.build(options);
-            break;
-        default:
-            options.sourcemap = 'linked';
-            await esbuild.build(options);
-            break;
+    case 'watch':
+        options.sourcemap = 'linked';
+        await esbuild.build(options);
+        const ctx = await esbuild.context(options);
+        await ctx.watch();
+        break;
+    case 'prod-build':
+        options.minify = true;
+        options.keepNames = true;
+        options.treeShaking = true;
+        await esbuild.build(options);
+        break;
+    default:
+        options.sourcemap = 'linked';
+        await esbuild.build(options);
+        break;
     };
 })();
