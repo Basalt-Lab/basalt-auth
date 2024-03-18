@@ -168,6 +168,8 @@
         "@typescript-eslint/return-await": "error", // https://typescript-eslint.io/rules/return-await
         "@typescript-eslint/unbound-method": "error", // https://typescript-eslint.io/rules/unbound-method
         "@typescript-eslint/unified-signatures": "error", // https://typescript-eslint.io/rules/unified-signatures
+        "no-undefined": "off",
+        "no-continue": "off",
         "no-underscore-dangle": "off",
         "class-methods-use-this": "off",
         "one-var": "off",
