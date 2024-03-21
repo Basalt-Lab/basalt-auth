@@ -1,7 +1,13 @@
-import { BasaltToken, BasaltTokenExpiry } from '../../Source/BasaltToken';
-import { generateKeyPairED25519 } from '../../Source/Common/Tools';
-import { ErrorBasaltToken, BasaltTokenErrorCodes } from '../../Source/Common/Errors';
-import { IKeyPairED25519, IBasaltTokenSignResult, IBasaltTokenHeader } from '../../Source/Interfaces';
+import {
+    BasaltToken,
+    BasaltTokenExpiry,
+    generateKeyPairED25519,
+    ErrorBasaltToken,
+    BasaltTokenErrorCodes,
+    type IKeyPairED25519,
+    type IBasaltTokenSignResult,
+    type IBasaltTokenHeader
+} from '@/App';
 
 describe('BasaltToken', (): void => {
     let basaltToken: BasaltToken;
