@@ -1,5 +1,4 @@
-import { generateKeyPairED25519 } from '../../Source/Common/Tools';
-import { IKeyPairED25519 } from '../../Source/Interfaces';
+import { generateKeyPairED25519, type IKeyPairED25519 } from '@/App';
 
 describe('BasaltKeyGenerator', (): void => {
     describe('generateKeyPairED25519', (): void => {

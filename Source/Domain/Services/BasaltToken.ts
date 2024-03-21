@@ -1,8 +1,9 @@
 import { randomUUID, sign, verify } from 'crypto';
 
-import { base64Decode, base64Encode, generateKeyPairED25519 } from '@/Common/Tools';
 import { BasaltTokenErrorCodes, ErrorBasaltToken } from '@/Common/Errors';
-import { type IBasaltTokenHeader, type IBasaltTokenSignResult, type IKeyPairED25519 } from '@/Interfaces';
+import { base64Decode, base64Encode, generateKeyPairED25519 } from '@/Common/Tools';
+import { type IKeyPairED25519 } from '@/Common/Tools/Interfaces';
+import { type IBasaltTokenHeader, type IBasaltTokenSignResult } from '@/Domain/Services/Interfaces';
 
 /**
  * Enumeration of token expiry times in milliseconds.
