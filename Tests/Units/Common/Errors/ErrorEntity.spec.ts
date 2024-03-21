@@ -1,4 +1,4 @@
-import { ErrorEntity } from '../../Source/Common/Errors/ErrorEntity';
+import { ErrorEntity } from '@/App';
 
 describe('ErrorEntity', (): void => {
     let errorEntity: ErrorEntity;
