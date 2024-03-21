@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.4...v1.1.5) (2024-03-21)
+
+
+### Build System
+
+* update build env ([dc9ef53](https://github.com/Basalt-Lab/basalt-auth/commit/dc9ef53ee9e126209a15b296a4215023d6b359e8))
+
 ## [1.1.4](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.3...v1.1.4) (2024-03-18)
 
 
