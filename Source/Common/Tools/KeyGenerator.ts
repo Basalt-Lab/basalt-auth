@@ -1,6 +1,6 @@
-import { generateKeyPairSync, type KeyPairSyncResult, randomUUID } from 'crypto';
+import { generateKeyPairSync, randomUUID, type KeyPairSyncResult } from 'crypto';
 
-import { type IKeyPairED25519 } from '@/Interfaces';
+import { type IKeyPairED25519 } from '@/Common/Tools/Interfaces';
 
 /**
  * Generate a new ED25519 key pair with a passphrase and return it
