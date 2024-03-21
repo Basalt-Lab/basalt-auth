@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.6](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.5...v1.1.6) (2024-03-21)
+
+
+### Code Refactoring
+
+* improve archi ([b38668b](https://github.com/Basalt-Lab/basalt-auth/commit/b38668b01e07b76b0cd3e1a7f8aab5eb00d9887d))
+
+
+### Tests
+
+* improvement tests ([3e52c5f](https://github.com/Basalt-Lab/basalt-auth/commit/3e52c5fdae56c9e4ab54f806c1469c0780e03cad))
+
 ## [1.1.5](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.4...v1.1.5) (2024-03-21)
 
 
