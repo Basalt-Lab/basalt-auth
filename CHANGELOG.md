@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.1.7](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.6...v1.1.7) (2024-03-28)
+
+
+### Code Refactoring
+
+* remove prefix basalt to error enum + improve comment ([e7bb758](https://github.com/Basalt-Lab/basalt-auth/commit/e7bb758b3973d960c61dc503dd14581aa4e193e4))
+
+
+### Build System
+
+* update packages + compiler option .. ([39b882b](https://github.com/Basalt-Lab/basalt-auth/commit/39b882b6317a738a0d5a8710e16deb21c9b38d79))
+
+
+### Continuous Integration
+
+* update node version in workflow files ([9a62362](https://github.com/Basalt-Lab/basalt-auth/commit/9a62362f8c75b123654a2d5629b85e6143e3d974))
+
 ## [1.1.6](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.5...v1.1.6) (2024-03-21)
 
 
