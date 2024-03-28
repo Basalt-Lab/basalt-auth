@@ -93,7 +93,7 @@ export class BasaltToken {
      * 
      * @returns The UUID of the token.
      * 
-     * @throws {@link ErrorBasaltToken}If the token structure is invalid.
+     * @throws {@link ErrorBasaltToken}If the token structure is invalid. {@link BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE}
      */
     public getTokenUuid(token: string): string {
         return this.getHeader(token).uuid;
@@ -105,7 +105,7 @@ export class BasaltToken {
      * 
      * @returns The expiration date of the token.
      * 
-     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid. {@link BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE}
      */
     public getExpirationDate(token: string): Date {
         return new Date(this.getHeader(token).exp);
@@ -117,7 +117,7 @@ export class BasaltToken {
      * 
      * @returns The intended audience of the token.
      * 
-     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid. {@link BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE}
      */
     public getAudience(token: string): string {
         return this.getHeader(token).audience;
@@ -129,7 +129,7 @@ export class BasaltToken {
      * 
      * @returns The issuer of the token.
      * 
-     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid. {@link BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE}
      */
     public getIssuer(token: string): string {
         return this.getHeader(token).issuer;
@@ -142,11 +142,11 @@ export class BasaltToken {
      * 
      * @returns The parsed header of the token.
      * 
-     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid. {@link BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE}
      */
     public getHeader(token: string): IBasaltTokenHeader {
         if (!this.structureIsValid(token))
-            throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_INVALID_STRUCTURE);
+            throw new ErrorBasaltToken(BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE);
         const [header]: string[] = token.split('.');
         return JSON.parse(
             base64Decode(header as string)
@@ -161,11 +161,11 @@ export class BasaltToken {
      * 
      * @returns The parsed payload of the token.
      * 
-     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid. {@link BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE}
      */
     public getPayload<T extends object>(token: string): T {
         if (!this.structureIsValid(token))
-            throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_INVALID_STRUCTURE);
+            throw new ErrorBasaltToken(BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE);
         const [, payload]: string[] = token.split('.');
         return JSON.parse(
             base64Decode(payload as string)
@@ -179,7 +179,7 @@ export class BasaltToken {
      * 
      * @returns True if the token has expired, false otherwise.
      * 
-     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid. {@link BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE}
      */
     public isExpired(token: string): boolean {
         return new Date(this.getHeader(token).exp) < new Date();
@@ -235,17 +235,17 @@ export class BasaltToken {
      * @param token - The authentication token to verify.
      * @param publicKey - The public key corresponding to the private key used to sign the token.
      * 
-     * @throws {@link ErrorBasaltToken} If the token structure is invalid.
-     * @throws {@link ErrorBasaltToken} If the token has expired.
-     * @throws {@link ErrorBasaltToken} If the token signature is invalid.
+     * @throws {@link ErrorBasaltToken} If the token structure is invalid. {@link BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE}
+     * @throws {@link ErrorBasaltToken} If the token has expired. {@link BasaltTokenErrorCodes.TOKEN_IS_EXPIRED}
+     * @throws {@link ErrorBasaltToken} If the token signature is invalid. {@link BasaltTokenErrorCodes.TOKEN_SIGNATURE_INVALID}
      */
     public verify(token: string, publicKey: string): void {
         if (!this.structureIsValid(token))
-            throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_INVALID_STRUCTURE);
+            throw new ErrorBasaltToken(BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE);
         if (this.isExpired(token))
-            throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_IS_EXPIRED);
+            throw new ErrorBasaltToken(BasaltTokenErrorCodes.TOKEN_IS_EXPIRED);
         const [header, payload, signature]: string[] = token.split('.');
         if (!verify(null, Buffer.from(`${header}.${payload}`), publicKey, Buffer.from(signature as string, 'base64')))
-            throw new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_SIGNATURE_INVALID);
+            throw new ErrorBasaltToken(BasaltTokenErrorCodes.TOKEN_SIGNATURE_INVALID);
     }
 }
