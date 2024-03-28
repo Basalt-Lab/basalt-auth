@@ -66,7 +66,7 @@ describe('BasaltToken', (): void => {
         it('should throw an error if the token structure is invalid', (): void => {
             expect((): void => {
                 basaltToken.getHeader('invalidToken');
-            }).toThrow(new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_INVALID_STRUCTURE));
+            }).toThrow(new ErrorBasaltToken(BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE));
         });
     });
 
@@ -81,7 +81,7 @@ describe('BasaltToken', (): void => {
         it('should throw an error if the token structure is invalid', (): void => {
             expect((): void => {
                 basaltToken.getPayload('invalidToken');
-            }).toThrow(new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_INVALID_STRUCTURE));
+            }).toThrow(new ErrorBasaltToken(BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE));
         });
     });
 
@@ -112,14 +112,14 @@ describe('BasaltToken', (): void => {
         it('should throw an error if the token structure is invalid', (): void => {
             expect((): void => {
                 basaltToken.verify('invalidToken', keyPair.publicKey);
-            }).toThrow(new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_INVALID_STRUCTURE));
+            }).toThrow(new ErrorBasaltToken(BasaltTokenErrorCodes.TOKEN_INVALID_STRUCTURE));
         });
 
         it('should throw an error if the token signature is invalid', (): void => {
             const result: IBasaltTokenSignResult = basaltToken.sign({});
             expect((): void => {
                 basaltToken.verify(result.token, keyPair.publicKey);
-            }).toThrow(new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_SIGNATURE_INVALID));
+            }).toThrow(new ErrorBasaltToken(BasaltTokenErrorCodes.TOKEN_SIGNATURE_INVALID));
         });
 
 
@@ -128,7 +128,7 @@ describe('BasaltToken', (): void => {
             await new Promise(resolve => setTimeout(resolve, 20));
             expect((): void => {
                 basaltToken.verify(result.token, result.publicKey);
-            }).toThrow(new ErrorBasaltToken(BasaltTokenErrorCodes.BASALT_TOKEN_IS_EXPIRED));
+            }).toThrow(new ErrorBasaltToken(BasaltTokenErrorCodes.TOKEN_IS_EXPIRED));
         });
     });
 });
