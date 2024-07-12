@@ -1,10 +1,11 @@
 import { generateKeyPairSync, randomUUID, type KeyPairSyncResult } from 'crypto';
 
-import { type IKeyPairED25519 } from '@/Common/Tools/Interfaces';
+import type { IKeyPairED25519 } from '@/Common/Util/Interfaces/index.js';
 
 /**
  * Generate a new ED25519 key pair with a passphrase and return it
- * @returns IBasaltKeyPairED25519
+ *
+ * @returns The generated key pair with the passphrase. ({@link IKeyPairED25519})
  */
 function generateKeyPairED25519(): IKeyPairED25519 {
     const passphrase: string = randomUUID();
