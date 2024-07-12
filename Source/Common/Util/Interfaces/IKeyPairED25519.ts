@@ -1,6 +1,5 @@
 /**
  * Interface for the ED25519 key pair.
- * @internal
  */
 export interface IKeyPairED25519 {
     /**

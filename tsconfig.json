@@ -1,19 +1,29 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@tsconfig/node21/tsconfig.json",
   "exclude": [
     "node_modules",
     "Build",
-    "**/*.spec.ts",
-    "esbuild.config.ts"
+    "Configs",
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "Source/**/*.ts",
   ],
   "typedocOptions": {
     "entryPoints": [
       "Source/**/*.ts"
     ],
-    "out": "docs",
+    "exclude": [
+      "./**/index.ts"
+    ],
+    "out": "docs"
   },
   "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "checkJs": true,
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
@@ -35,7 +45,7 @@
     "declaration": true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
     "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
     "outDir": "./Build",                              /* Specify an output folder for all emitted files. */
-    "removeComments": false,                          /* Disable emitting comments. */
+    "removeComments": false,                           /* Disable emitting comments. */
     "importHelpers": true,                            /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
 
     /* Interop Constraints */
