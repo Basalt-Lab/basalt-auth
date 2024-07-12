@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.7...v1.2.0) (2024-07-12)
+
+
+### Features
+
+* change to esm + global update ([2dbe30e](https://github.com/Basalt-Lab/basalt-auth/commit/2dbe30ef5281d2633efcd2077c1c18974e93cbf0))
+
 ## [1.1.7](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.6...v1.1.7) (2024-03-28)
 
 
