@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.2.0...v1.2.1) (2024-07-12)
+
+
+### Continuous Integration
+
+* correction for release action ([7fa4158](https://github.com/Basalt-Lab/basalt-auth/commit/7fa415894872f68fcc58fd7b3f63cf4b9b241bff))
+
 ## [1.2.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.1.7...v1.2.0) (2024-07-12)
 
 
