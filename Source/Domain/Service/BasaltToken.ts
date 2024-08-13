@@ -91,7 +91,8 @@ export class BasaltToken {
     public getHeader(token: string): IBasaltTokenHeader {
         if (!this._structureIsValid(token))
             throw new BasaltError({
-                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_STRUCTURE
+                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_STRUCTURE,
+                code: 401
             });
         const [header]: string[] = token.split('.');
         try {
@@ -100,7 +101,8 @@ export class BasaltToken {
             ) as IBasaltTokenHeader;
         } catch {
             throw new BasaltError({
-                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_HEADER
+                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_HEADER,
+                code: 401
             });
         }
     }
@@ -120,7 +122,8 @@ export class BasaltToken {
     public getPayload<T extends object>(token: string): T {
         if (!this._structureIsValid(token))
             throw new BasaltError({
-                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_STRUCTURE
+                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_STRUCTURE,
+                code: 401
             });
         const [, payload]: string[] = token.split('.');
         try {
@@ -129,7 +132,8 @@ export class BasaltToken {
             ) as T;
         } catch {
             throw new BasaltError({
-                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_PAYLOAD
+                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_PAYLOAD,
+                code: 401
             });
         }
     }
@@ -205,16 +209,19 @@ export class BasaltToken {
     public verify(token: string, publicKey: string): void {
         if (!this._structureIsValid(token))
             throw new BasaltError({
-                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_STRUCTURE
+                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_STRUCTURE,
+                code: 401
             });
         if (this.isExpired(token))
             throw new BasaltError({
-                messageKey: BasaltTokenErrorKeys.TOKEN_IS_EXPIRED
+                messageKey: BasaltTokenErrorKeys.TOKEN_IS_EXPIRED,
+                code: 401
             });
         const [header, payload, signature]: string[] = token.split('.');
         if (!verify(null, Buffer.from(`${header}.${payload}`), publicKey, Buffer.from(signature as string, 'base64')))
             throw new BasaltError({
-                messageKey: BasaltTokenErrorKeys.TOKEN_SIGNATURE_INVALID
+                messageKey: BasaltTokenErrorKeys.TOKEN_SIGNATURE_INVALID,
+                code: 401
             });
     }
 
