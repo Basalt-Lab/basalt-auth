@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.2](https://github.com/Basalt-Lab/basalt-auth/compare/v1.2.1...v1.2.2) (2024-08-13)
+
+
+### Bug Fixes
+
+* catch json parse error when header or payload is not an object ([d134078](https://github.com/Basalt-Lab/basalt-auth/commit/d13407819586e01371ab1958083fcb41f2413ccc))
+
+
+### Build System
+
+* update deps and node versions ([0f9fbde](https://github.com/Basalt-Lab/basalt-auth/commit/0f9fbdeddf09ec246ed3c9ffccefa0df139bd018))
+
 ## [1.2.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.2.0...v1.2.1) (2024-07-12)
 
 
