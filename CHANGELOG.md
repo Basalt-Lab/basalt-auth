@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.2.2...v1.3.0) (2024-08-13)
+
+
+### Features
+
+* add name for BasaltError ([d10f00b](https://github.com/Basalt-Lab/basalt-auth/commit/d10f00b4c16f31221ff495a8220d163edff45f3e))
+
 ## [1.2.2](https://github.com/Basalt-Lab/basalt-auth/compare/v1.2.1...v1.2.2) (2024-08-13)
 
 
