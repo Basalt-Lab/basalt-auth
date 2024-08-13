@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.3.0...v1.4.0) (2024-08-13)
+
+
+### Features
+
+* add code to throw error ([b147802](https://github.com/Basalt-Lab/basalt-auth/commit/b147802f8f3134e405e3952d0f291812b90a9be2))
+
 ## [1.3.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.2.2...v1.3.0) (2024-08-13)
 
 
