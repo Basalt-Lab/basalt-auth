@@ -84,6 +84,7 @@ export class BasaltToken {
      * @param token - The authentication token.
      *
      * @throws ({@link BasaltError}) If the token structure is invalid. ({@link BasaltTokenErrorKeys.TOKEN_INVALID_STRUCTURE})
+     * @throws ({@link BasaltError}) If the token header is invalid. ({@link BasaltTokenErrorKeys.TOKEN_INVALID_HEADER})
      *
      * @returns The parsed header of the token. ({@link IBasaltTokenHeader})
      */
@@ -93,9 +94,15 @@ export class BasaltToken {
                 messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_STRUCTURE
             });
         const [header]: string[] = token.split('.');
-        return JSON.parse(
-            base64Decode(header as string)
-        ) as IBasaltTokenHeader;
+        try {
+            return JSON.parse(
+                base64Decode(header as string)
+            ) as IBasaltTokenHeader;
+        } catch {
+            throw new BasaltError({
+                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_HEADER
+            });
+        }
     }
 
     /**
@@ -106,6 +113,7 @@ export class BasaltToken {
      * @param token - The authentication token.
      *
      * @throws ({@link BasaltError}) If the token structure is invalid. ({@link BasaltTokenErrorKeys.TOKEN_INVALID_STRUCTURE})
+     * @throws ({@link BasaltError}) If the token payload is invalid. ({@link BasaltTokenErrorKeys.TOKEN_INVALID_PAYLOAD})
      *
      * @returns The parsed payload of the token. ({@link T})
      */
@@ -115,9 +123,15 @@ export class BasaltToken {
                 messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_STRUCTURE
             });
         const [, payload]: string[] = token.split('.');
-        return JSON.parse(
-            base64Decode(payload as string)
-        ) as T;
+        try {
+            return JSON.parse(
+                base64Decode(payload as string)
+            ) as T;
+        } catch {
+            throw new BasaltError({
+                messageKey: BasaltTokenErrorKeys.TOKEN_INVALID_PAYLOAD
+            });
+        }
     }
 
     /**
