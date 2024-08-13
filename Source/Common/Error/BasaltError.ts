@@ -40,6 +40,7 @@ export class BasaltError extends Error {
         this._code = basaltErrorOptions.code ?? 500;
         this.message = basaltErrorOptions.messageKey;
         this._detail = basaltErrorOptions.detail;
+        this.name = this.constructor.name;
         if (Error.captureStackTrace)
             Error.captureStackTrace(this, this.constructor);
     }
