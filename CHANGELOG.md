@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.4.0...v1.4.1) (2024-08-14)
+
+
+### Code Refactoring
+
+* merge all errorkeys + clean value... ([369816e](https://github.com/Basalt-Lab/basalt-auth/commit/369816ed1425858f296d5f6de2c8f4e8f98ff66e))
+
 ## [1.4.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.3.0...v1.4.0) (2024-08-13)
 
 
