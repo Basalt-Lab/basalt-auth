@@ -1,14 +1,14 @@
 /**
  * Interface for the Basalt Token Header
  */
-export interface IBasaltTokenHeader {
+export interface BasaltTokenHeader {
     /**
      * Expiration time of the token
      */
     exp: number;
 
     /**
-     * Uuid of the token
+     * UUID of the token
      */
     uuid: string;
 
