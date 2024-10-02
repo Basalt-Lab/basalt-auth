@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'bun:test';
 
-import { basaltToken } from '../../../source/domain/service';
-import type { BasaltTokenSignResult, BasaltTokenHeader } from '../../../source/common/types';
 import { ErrorKeys } from '../../../source/common/error';
+import type { BasaltTokenHeader, BasaltTokenSignResult } from '../../../source/common/types';
+import { basaltToken } from '../../../source/domain/service';
 
 describe('sign', () => {
     test('should return a token result', () => {
@@ -43,7 +43,6 @@ describe('verify', () => {
         expect(() => basaltToken.verify(mutedToken, tokenResult.publicKey)).toThrow(ErrorKeys.TOKEN_SIGNATURE_INVALID);
     });
 });
-
 
 describe('isExpired', () => {
     test('should return true if the token has expired', async () => {
