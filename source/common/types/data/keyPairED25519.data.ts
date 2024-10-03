@@ -1,7 +1,7 @@
 /**
  * Interface for the ED25519 key pair.
  */
-export interface IKeyPairED25519 {
+export interface KeyPairED25519 {
     /**
      * The public key.
      */

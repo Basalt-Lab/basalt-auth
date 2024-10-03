@@ -1,8 +1,4 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
     "extends": [
         "eslint:all",
         "plugin:@typescript-eslint/recommended"
@@ -19,9 +15,8 @@
     },
     "ignorePatterns": [
         "node_modules/*",
-        "Configs/*",
         "**/*.spec.ts",
-        "Build/*"
+        "build/*"
     ],
     "rules": {
         "tsdoc/syntax": "error",
@@ -29,10 +24,7 @@
             "error",
             4
         ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
+        "linebreak-style": "off",
         "quotes": [
             "error",
             "single"
@@ -45,7 +37,7 @@
         "@typescript-eslint/array-type": [
             "error",
             {
-                "default": "array-simple"
+                "default": "array"
             }
         ],
         "@typescript-eslint/await-thenable": "error",
@@ -97,7 +89,7 @@
         "@typescript-eslint/max-params": [
             "error",
             {
-                "max": 4
+                "max": 5
             }
         ],
         "@typescript-eslint/member-ordering": "off",
@@ -137,7 +129,7 @@
         "@typescript-eslint/no-unsafe-call": "off",
         "@typescript-eslint/no-unsafe-declaration-merging": "error",
         "@typescript-eslint/no-unsafe-enum-comparison": "error",
-        "@typescript-eslint/no-unsafe-member-access": "error",
+        "@typescript-eslint/no-unsafe-member-access": "off",
         "@typescript-eslint/no-unsafe-return": "error",
         "no-unused-expressions": "off",
         "@typescript-eslint/no-unused-expressions": "error",
@@ -178,6 +170,7 @@
         "max-statements": "off",
         "no-ternary": "off",
         "no-plusplus": "off",
+        "no-param-reassign": "off",
         "id-length": "off",
         "max-lines": "off",
         "no-undefined": "off",
@@ -267,4 +260,5 @@
             "always"
         ]
     }
-}
+  }
+  

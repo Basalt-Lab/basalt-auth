@@ -1,7 +1,7 @@
 /**
  * Interface for the result of the token sign method.
  */
-export interface IBasaltTokenSignResult {
+export interface BasaltTokenSignResult {
     /**
      * The token
      */
