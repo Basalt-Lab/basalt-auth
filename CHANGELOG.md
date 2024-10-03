@@ -1,5 +1,45 @@
 # Changelog
 
+## [1.5.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.4.0...v1.5.0) (2024-10-03)
+
+
+### Features
+
+* change structure and nomenclature + refacto basaltToken ([5ee4464](https://github.com/Basalt-Lab/basalt-auth/commit/5ee446415a71f4d29b1d6467d71f10d1ab7f4661))
+
+
+### Bug Fixes
+
+* bad export type in package json ([56c95b3](https://github.com/Basalt-Lab/basalt-auth/commit/56c95b34637ee82d0e90c27371dba8b23d3dd424))
+
+
+### Code Refactoring
+
+* merge all errorkeys + clean value... ([369816e](https://github.com/Basalt-Lab/basalt-auth/commit/369816ed1425858f296d5f6de2c8f4e8f98ff66e))
+
+
+### Build System
+
+* change build system ([7bf064b](https://github.com/Basalt-Lab/basalt-auth/commit/7bf064b46f8680c1682bafc6a0ba51da3c0e3d1f))
+* update dependencies ([9e1e78d](https://github.com/Basalt-Lab/basalt-auth/commit/9e1e78d506f27c1d1bf22aa5d9ca074637a9dff5))
+
+
+### Tests
+
+* add tests ([3f580fe](https://github.com/Basalt-Lab/basalt-auth/commit/3f580fe54d408d5ac778341e0e81f91837bac2ab))
+* add units tests ([1eb58e3](https://github.com/Basalt-Lab/basalt-auth/commit/1eb58e348f7054161ce86799646c3006babdd9b7))
+
+
+### Continuous Integration
+
+* refacto to support bun ([33509e5](https://github.com/Basalt-Lab/basalt-auth/commit/33509e5b3e55707eb5db2527271fc18554826bf2))
+
+
+### Miscellaneous Chores
+
+* **main:** release 1.4.1 ([30317cb](https://github.com/Basalt-Lab/basalt-auth/commit/30317cb80a17e80d71bca32cd7966b01966e6ab3))
+* **main:** release 1.4.1 ([#36](https://github.com/Basalt-Lab/basalt-auth/issues/36)) ([da63ac5](https://github.com/Basalt-Lab/basalt-auth/commit/da63ac52619ccde004c320aadaa88906ac801e46))
+
 ## [1.4.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.4.0...v1.4.1) (2024-08-14)
 
 

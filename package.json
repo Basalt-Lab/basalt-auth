@@ -1,15 +1,14 @@
 {
   "name": "@basalt-lab/basalt-auth",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Authentication module for Basalt Framework",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "Build/App.js",
+  "types": "Build/App.d.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun --watch source/index.ts",
-    "build": "tsc && tsc-alias && NODE_ENV=production bun bundler.config.ts",
-    "start": "NODE_ENV=production bun build/index.js",
-    "test": "bun test --coverage",
+    "clear": "if [ -f tsconfig.tsbuildinfo ]; then rm tsconfig.tsbuildinfo; fi && if [ -d Build ]; then rm -rf Build; fi",
+    "create-types": "tsc --emitDeclarationOnly && tsc-alias",
+    "build": "npm run clear && tsc --noEmit && npm run create-types && node ./Configs/esbuild.config",
     "docs": "typedoc",
     "fix-lint": "eslint --fix . --ext .ts",
     "lint": "eslint . --ext .ts"
@@ -31,15 +30,15 @@
   },
   "homepage": "https://github.com/Basalt-Lab/basalt-auth#readme",
   "devDependencies": {
-    "@types/bun": "^1.1.10",
-    "@types/node": "^22.7.4",
+    "@types/node": "^22.2.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
-    "eslint": "^8.57.1",
+    "esbuild": "^0.23.0",
+    "eslint": "^8.57.0",
     "eslint-plugin-tsdoc": "^0.3.0",
     "tsc-alias": "^1.8.10",
-    "tslib": "^2.7.0",
-    "typedoc": "^0.26.7",
-    "typescript": "^5.6.2"
+    "tslib": "^2.6.3",
+    "typedoc": "^0.26.5",
+    "typescript": "^5.5.4"
   }
 }
