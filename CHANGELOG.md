@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.4.0...v1.4.1) (2024-10-03)
+
+
+### Code Refactoring
+
+* merge all errorkeys + clean value... ([369816e](https://github.com/Basalt-Lab/basalt-auth/commit/369816ed1425858f296d5f6de2c8f4e8f98ff66e))
+
+
+### Miscellaneous Chores
+
+* **main:** release 1.4.1 ([30317cb](https://github.com/Basalt-Lab/basalt-auth/commit/30317cb80a17e80d71bca32cd7966b01966e6ab3))
+* **main:** release 1.4.1 ([#36](https://github.com/Basalt-Lab/basalt-auth/issues/36)) ([da63ac5](https://github.com/Basalt-Lab/basalt-auth/commit/da63ac52619ccde004c320aadaa88906ac801e46))
+
 ## [1.4.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.4.0...v1.4.1) (2024-08-14)
 
 
