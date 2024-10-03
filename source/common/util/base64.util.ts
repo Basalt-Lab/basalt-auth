@@ -5,7 +5,7 @@
  *
  * @returns The decoded utf-8 string.
  */
-function base64Decode(value: string): string {
+export function base64Decode(value: string): string {
     return Buffer.from(value, 'base64').toString('utf-8');
 }
 
@@ -16,8 +16,6 @@ function base64Decode(value: string): string {
  *
  * @returns The encoded base64 string.
  */
-function base64Encode(value: string): string {
+export function base64Encode(value: string): string {
     return Buffer.from(value).toString('base64');
 }
-
-export { base64Decode, base64Encode };
