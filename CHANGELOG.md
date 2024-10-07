@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.6.0...v1.6.1) (2024-10-07)
+
+
+### Bug Fixes
+
+* correction name (because bun bundler has no keepName like esbuild) ([2540167](https://github.com/Basalt-Lab/basalt-auth/commit/2540167d653e1f8ef4d00791270d9d325fb6f305))
+
 ## [1.6.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.5.0...v1.6.0) (2024-10-03)
 
 
