@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.3](https://github.com/Basalt-Lab/basalt-auth/compare/v1.6.2...v1.6.3) (2024-11-07)
+
+
+### Build System
+
+* reduce package size ([de63955](https://github.com/Basalt-Lab/basalt-auth/commit/de63955a2aa0c27255d477554b3163ce048ff463))
+
 ## [1.6.2](https://github.com/Basalt-Lab/basalt-auth/compare/v1.6.1...v1.6.2) (2024-11-07)
 
 
