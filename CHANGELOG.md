@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.2](https://github.com/Basalt-Lab/basalt-auth/compare/v1.6.1...v1.6.2) (2024-11-07)
+
+
+### Build System
+
+* updates packages + script ([0e10e78](https://github.com/Basalt-Lab/basalt-auth/commit/0e10e7877e03c9e3d26466ffcc6c3ecc43cb3a21))
+
+
+### Styles
+
+* update eslint ([1e02c17](https://github.com/Basalt-Lab/basalt-auth/commit/1e02c176af20d241e2084de9046ca701fd76e9c1))
+
 ## [1.6.1](https://github.com/Basalt-Lab/basalt-auth/compare/v1.6.0...v1.6.1) (2024-10-07)
 
 
