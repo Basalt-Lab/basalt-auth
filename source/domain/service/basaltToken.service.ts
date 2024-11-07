@@ -17,7 +17,7 @@ export enum BasaltTokenExpiry {
     SIX_HOURS = 21600000,
     TWELVE_HOURS = 43200000,
     ONE_DAY = 86400000,
-    ONE_WEEK = 604800000,
+    ONE_WEEK = 604800000
 }
 
 /**
@@ -83,6 +83,35 @@ function _buildSignature(header: string, payload: string, privateKey: string, pa
 }
 
 /**
+ * Parses the token header and returns it.
+ *
+ * @param token - The authentication token.
+ *
+ * @throws ({@link BasaltError}) If the token structure is invalid. ({@link ErrorKeys.TOKEN_INVALID_STRUCTURE})
+ * @throws ({@link BasaltError}) If the token header is invalid. ({@link ErrorKeys.TOKEN_INVALID_HEADER})
+ *
+ * @returns The parsed header of the token. ({@link BasaltTokenHeader})
+ */
+function getHeader(token: string): BasaltTokenHeader {
+    if (!_structureIsValid(token))
+        throw new BasaltError({
+            messageKey: ErrorKeys.TOKEN_INVALID_STRUCTURE,
+            code: 401
+        });
+    const [header]: string[] = token.split('.');
+    try {
+        return JSON.parse(
+            base64Decode(header as string)
+        ) as BasaltTokenHeader;
+    } catch {
+        throw new BasaltError({
+            messageKey: ErrorKeys.TOKEN_INVALID_HEADER,
+            code: 401
+        });
+    }
+}
+
+/**
  * Retrieves the unique identifier (UUID) from the token.
  *
  * @param token - The authentication token.
@@ -132,35 +161,6 @@ function getAudience(token: string): string {
  */
 function getIssuer(token: string): string {
     return getHeader(token).issuer;
-}
-
-/**
- * Parses the token header and returns it.
- *
- * @param token - The authentication token.
- *
- * @throws ({@link BasaltError}) If the token structure is invalid. ({@link ErrorKeys.TOKEN_INVALID_STRUCTURE})
- * @throws ({@link BasaltError}) If the token header is invalid. ({@link ErrorKeys.TOKEN_INVALID_HEADER})
- *
- * @returns The parsed header of the token. ({@link BasaltTokenHeader})
- */
-function getHeader(token: string): BasaltTokenHeader {
-    if (!_structureIsValid(token))
-        throw new BasaltError({
-            messageKey: ErrorKeys.TOKEN_INVALID_STRUCTURE,
-            code: 401
-        });
-    const [header]: string[] = token.split('.');
-    try {
-        return JSON.parse(
-            base64Decode(header as string)
-        ) as BasaltTokenHeader;
-    } catch {
-        throw new BasaltError({
-            messageKey: ErrorKeys.TOKEN_INVALID_HEADER,
-            code: 401
-        });
-    }
 }
 
 /**
@@ -235,8 +235,8 @@ function isExpired(token: string): boolean {
 function sign<T extends object>(
     payload: T,
     expirationMs: number = BasaltTokenExpiry.ONE_HOUR,
-    issuer: string = 'Basalt-Issuer',
-    audience: string = 'Basalt-Audience'
+    issuer = 'Basalt-Issuer',
+    audience = 'Basalt-Audience'
 ): BasaltTokenSignResult {
     const tokenUUid: string = randomUUID();
     const keyPair: KeyPairED25519 = generateKeyPairED25519();
@@ -248,7 +248,7 @@ function sign<T extends object>(
     return {
         token: `${headerStringify}.${payloadStringify}.${signature}`,
         uuid: tokenUUid,
-        publicKey: keyPair.publicKey,
+        publicKey: keyPair.publicKey
     };
 }
 
@@ -301,5 +301,5 @@ export const basaltToken = {
     getPayload,
     isExpired,
     sign,
-    verify,
+    verify
 };
