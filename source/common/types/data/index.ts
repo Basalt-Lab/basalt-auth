@@ -1,3 +1,3 @@
-export * from './basaltTokenHeader.data.ts';
-export * from './basaltTokenSignResult.data.ts';
-export * from './keyPairED25519.data.ts';
+export type * from './basaltTokenHeader.data.ts';
+export type * from './basaltTokenSignResult.data.ts';
+export type * from './keyPairED25519.data.ts';
