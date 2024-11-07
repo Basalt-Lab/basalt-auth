@@ -22,7 +22,8 @@ export function generateKeyPairED25519(): KeyPairED25519 {
                 cipher: 'aes-256-cbc',
                 passphrase
             }
-        });
+        }
+    );
     return {
         ...keyPair,
         passphrase

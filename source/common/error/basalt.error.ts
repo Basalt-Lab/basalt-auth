@@ -39,6 +39,7 @@ export class BasaltError extends Error {
      * The error code.
      */
     private readonly _code: number;
+
     /**
      * The error detail.
      */
