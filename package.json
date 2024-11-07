@@ -11,8 +11,8 @@
     "start": "NODE_ENV=production bun build/index.js",
     "test": "bun test --coverage",
     "docs": "typedoc",
-    "fix-lint": "eslint --fix . --ext .ts",
-    "lint": "eslint . --ext .ts"
+    "fix-lint": "eslint --fix ./source",
+    "lint": "eslint ./source"
   },
   "repository": {
     "type": "git",
@@ -31,15 +31,17 @@
   },
   "homepage": "https://github.com/Basalt-Lab/basalt-auth#readme",
   "devDependencies": {
-    "@types/bun": "^1.1.10",
-    "@types/node": "^22.7.4",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "eslint": "^8.57.1",
+    "@types/bun": "^1.1.13",
+    "@types/node": "^22.9.0",
+    "@eslint/js": "^9.14.0",
+    "@stylistic/eslint-plugin": "^2.10.1",
+    "eslint": "^9.14.0",
     "eslint-plugin-tsdoc": "^0.3.0",
+    "globals": "^15.12.0",
+    "typescript-eslint": "^8.13.0",
     "tsc-alias": "^1.8.10",
-    "tslib": "^2.7.0",
-    "typedoc": "^0.26.7",
-    "typescript": "^5.6.2"
+    "tslib": "^2.8.1",
+    "typedoc": "^0.26.11",
+    "typescript": "^5.6.3"
   }
 }
