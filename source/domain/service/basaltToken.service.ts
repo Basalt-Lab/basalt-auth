@@ -1,9 +1,12 @@
 import { randomUUID, sign as sig, verify as ver } from 'crypto';
 
-import { BasaltError, ErrorKeys } from '#/common/error/index.ts';
-
-import type { BasaltTokenHeader, BasaltTokenSignResult, KeyPairED25519 } from '#/common/types/index.ts';
-import { base64Decode, base64Encode, generateKeyPairED25519 } from '#/common/util/index.ts';
+import { BasaltError } from '#/common/error/basalt.error.ts';
+import { ErrorKeys } from '#/common/error/keys.error.ts';
+import type { BasaltTokenHeader } from '#/common/type/data/basaltTokenHeader.data.ts';
+import type { BasaltTokenSignResult } from '#/common/type/data/basaltTokenSignResult.data.ts';
+import type { KeyPairED25519 } from '#/common/type/data/keyPairED25519.data.ts';
+import { base64Decode, base64Encode } from '#/common/util/base64.util.ts';
+import { generateKeyPairED25519 } from '#/common/util/keyGenerator.util.ts';
 
 /**
  * Enumeration of token expiry times in milliseconds.
