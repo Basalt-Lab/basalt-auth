@@ -21,9 +21,9 @@
       "require": "./build/common/type/data/index.js"
     },
     "./token": {
-      "types": "./build/domain/service/basaltToken.d.js",
-      "import": "./build/domain/service/basaltToken.js",
-      "require": "./build/domain/service/basaltToken.js"
+      "types": "./build/domain/service/basaltToken.service.d.js",
+      "import": "./build/domain/service/basaltToken.service.js",
+      "require": "./build/domain/service/basaltToken.service.js"
     }
   },
   "scripts": {
