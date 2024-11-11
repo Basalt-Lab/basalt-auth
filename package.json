@@ -15,7 +15,7 @@
       "import": "./build/common/error/index.js",
       "require": "./build/common/error/index.js"
     },
-    "./data": {
+    "./type": {
       "types": "./build/common/type/data/index.d.js",
       "import": "./build/common/type/data/index.js",
       "require": "./build/common/type/data/index.js"

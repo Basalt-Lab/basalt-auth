@@ -1,2 +1,2 @@
 export * from './basaltError.ts';
-export * from './keysError.ts';
+export * from './errorKeys.ts';

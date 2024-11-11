@@ -1,7 +1,7 @@
 import { randomUUID, sign as sig, verify as ver } from 'crypto';
 
 import { BasaltError } from '#/common/error/basaltError.ts';
-import { ErrorKeys } from '#/common/error/keysError.ts';
+import { ErrorKeys } from '#/common/error/errorKeys.ts';
 import type { BasaltTokenHeader } from '#/common/type/data/basaltTokenHeader.ts';
 import type { BasaltTokenSignResult } from '#/common/type/data/basaltTokenSignResult.ts';
 import type { KeyPairED25519 } from '#/common/type/data/keyPairED25519.ts';
