@@ -1,2 +1,2 @@
-export * from './basalt.error.js';
-export * from './keys.error.js';
+export * from './basalt.error.ts';
+export * from './keys.error.ts';

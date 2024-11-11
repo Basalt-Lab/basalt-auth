@@ -1,4 +1,3 @@
 export * from '#/common/error/index.ts';
-export type * from '#/common/types/index.ts';
-export * from '#/common/util/index.ts';
-export * from '#/domain/service/index.ts';
+export type * from '#/common/type/data/index.ts';
+export * from '#/domain/service/basaltToken.service.ts';
