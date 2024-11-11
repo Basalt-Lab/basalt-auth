@@ -3,37 +3,27 @@
   "version": "1.6.3",
   "description": "Authentication module for Basalt Framework",
   "type": "module",
-  "types": "build/index.d.ts",
+  "types": "./build/index.d.ts",
   "exports": {
     ".": {
       "types": "./build/index.d.ts",
       "import": "./build/index.js",
       "require": "./build/index.js"
     },
-    "./common/error": {
+    "./error": {
       "types": "./build/common/error/index.d.js",
       "import": "./build/common/error/index.js",
       "require": "./build/common/error/index.js"
     },
-    "./common/type": {
-      "types": "./build/common/type/index.d.js",
-      "import": "./build/common/type/index.js",
-      "require": "./build/common/type/index.js"
-    },
-    "./common/type/data": {
+    "./data": {
       "types": "./build/common/type/data/index.d.js",
       "import": "./build/common/type/data/index.js",
       "require": "./build/common/type/data/index.js"
     },
-    "./common/util": {
-      "types": "./build/common/util/index.d.js",
-      "import": "./build/common/util/index.js",
-      "require": "./build/common/util/index.js"
-    },
-    "./domain/service": {
-      "types": "./build/domain/service/index.d.js",
-      "import": "./build/domain/service/index.js",
-      "require": "./build/domain/service/index.js"
+    "./token": {
+      "types": "./build/domain/service/basaltToken.d.js",
+      "import": "./build/domain/service/basaltToken.js",
+      "require": "./build/domain/service/basaltToken.js"
     }
   },
   "scripts": {

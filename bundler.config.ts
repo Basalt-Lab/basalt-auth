@@ -10,10 +10,8 @@ await Bun.build({
     entrypoints: [
         './source/index.ts',
         './source/common/error/index.ts',
-        './source/common/type/index.ts',
         './source/common/type/data/index.ts',
-        './source/common/util/index.ts',
-        './source/domain/service/index.ts',
+        './source/domain/service/basaltToken.ts',
     ],
     outdir: './build',
     format: 'esm',
