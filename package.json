@@ -1,6 +1,6 @@
 {
   "name": "@basalt-lab/basalt-auth",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "description": "Authentication module for Basalt Framework",
   "type": "module",
   "types": "./build/index.d.ts",

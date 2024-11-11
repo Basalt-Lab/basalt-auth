@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.7.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.6.3...v1.7.0) (2024-11-11)
+
+
+### Features
+
+* Don't use Barrel File in code base only to export ([96c82fb](https://github.com/Basalt-Lab/basalt-auth/commit/96c82fb133991b0280b6baeece8b685a588a9f84))
+
+
+### Bug Fixes
+
+* correction name erroKeys ([4d1fda1](https://github.com/Basalt-Lab/basalt-auth/commit/4d1fda164d1699a9299e6fa38cfb3e92258c8757))
+
+
+### Code Refactoring
+
+* rename all files with extension ([aa46fce](https://github.com/Basalt-Lab/basalt-auth/commit/aa46fce44c89d80ff61c58f1e2a5531854ef13f1))
+* rename file and change index ([a1b83e3](https://github.com/Basalt-Lab/basalt-auth/commit/a1b83e3f87497a2bba8682248f396df3e3542bc6))
+
+
+### Build System
+
+* add exports multiple entry point ([1662a95](https://github.com/Basalt-Lab/basalt-auth/commit/1662a9545640cf6d7cfd36d7de9b148dcd3d2719))
+* add splitting ([6c89b21](https://github.com/Basalt-Lab/basalt-auth/commit/6c89b21d1fde3ed17bd6627ac2294a8e6f884339))
+* change export (simplify) ([e241be3](https://github.com/Basalt-Lab/basalt-auth/commit/e241be3ecd8ac05e031b742d7fc50bd0a5517466))
+
 ## [1.6.3](https://github.com/Basalt-Lab/basalt-auth/compare/v1.6.2...v1.6.3) (2024-11-07)
 
 
