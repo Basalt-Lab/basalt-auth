@@ -2,8 +2,24 @@
   "name": "@basalt-lab/basalt-auth",
   "version": "1.7.0",
   "description": "Authentication module for Basalt Framework",
+  "keywords": [
+    "basalt-auth",
+    "basalt",
+    "auth",
+    "authentication",
+    "token"
+  ],
+  "homepage": "https://github.com/Basalt-Lab/basalt-auth#readme",
+  "bugs": {
+    "url": "https://github.com/Basalt-Lab/basalt-auth/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Basalt-Lab/basalt-auth.git"
+  },
+  "license": "MIT",
+  "author": "Ruby",
   "type": "module",
-  "types": "./build/index.d.ts",
   "exports": {
     ".": {
       "types": "./build/index.d.ts",
@@ -26,43 +42,26 @@
       "require": "./build/domain/service/basaltToken.service.js"
     }
   },
+  "types": "./build/index.d.ts",
   "scripts": {
-    "dev": "bun --watch source/index.ts",
     "build": "tsc && tsc-alias && NODE_ENV=production bun bundler.config.ts",
-    "start": "NODE_ENV=production bun build/index.js",
-    "test": "bun test --coverage",
+    "dev": "bun --watch source/index.ts",
     "docs": "typedoc",
     "fix-lint": "eslint --fix ./source",
-    "lint": "eslint ./source"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Basalt-Lab/basalt-auth.git"
-  },
-  "keywords": [
-    "basalt-auth",
-    "basalt",
-    "auth",
-    "authentication"
-  ],
-  "author": "Ruby",
-  "license": "MIT",
-  "homepage": "https://github.com/Basalt-Lab/basalt-auth#readme",
-  "bugs": {
-    "url": "https://github.com/Basalt-Lab/basalt-auth/issues"
+    "lint": "eslint ./source",
+    "start": "NODE_ENV=production bun build/index.js",
+    "test": "bun test --coverage"
   },
   "devDependencies": {
-    "@types/bun": "^1.1.13",
-    "@types/node": "^22.9.0",
-    "@eslint/js": "^9.14.0",
-    "@stylistic/eslint-plugin": "^2.10.1",
-    "eslint": "^9.14.0",
-    "eslint-plugin-tsdoc": "^0.3.0",
-    "globals": "^15.12.0",
-    "typescript-eslint": "^8.13.0",
+    "@eslint/js": "^9.16.0",
+    "@stylistic/eslint-plugin": "^2.12.1",
+    "@types/bun": "^1.1.14",
+    "@types/node": "^22.10.2",
+    "eslint": "^9.16.0",
+    "eslint-plugin-tsdoc": "^0.4.0",
     "tsc-alias": "^1.8.10",
-    "tslib": "^2.8.1",
-    "typedoc": "^0.26.11",
-    "typescript": "^5.6.3"
+    "typedoc": "^0.27.4",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.0"
   }
 }
