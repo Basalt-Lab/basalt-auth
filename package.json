@@ -40,6 +40,11 @@
       "types": "./build/domain/service/basaltToken.service.d.js",
       "import": "./build/domain/service/basaltToken.service.js",
       "require": "./build/domain/service/basaltToken.service.js"
+    },
+    "./translation": {
+      "types": "./build/common/i18n/index.d.js",
+      "import": "./build/common/i18n/index.js",
+      "require": "./build/common/i18n/index.js"
     }
   },
   "types": "./build/index.d.ts",

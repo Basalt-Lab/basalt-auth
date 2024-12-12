@@ -12,6 +12,7 @@ await Bun.build({
         './source/common/error/index.ts',
         './source/common/type/data/index.ts',
         './source/domain/service/basaltToken.service.ts',
+        './source/common/i18n/index.ts'
     ],
     outdir: './build',
     splitting: true,
