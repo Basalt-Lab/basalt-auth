@@ -62,11 +62,59 @@
     "@stylistic/eslint-plugin": "^2.12.1",
     "@types/bun": "^1.1.14",
     "@types/node": "^22.10.2",
+    "changelogen": "^0.5.7",
     "eslint": "^9.16.0",
     "eslint-plugin-tsdoc": "^0.4.0",
     "tsc-alias": "^1.8.10",
     "typedoc": "^0.27.4",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.18.0"
+  },
+  "changelog": {
+    "types": {
+      "feat": {
+        "title": "🚀 Enhancements",
+        "semver": "minor"
+      },
+      "perf": {
+        "title": "⚡ Performance",
+        "semver": "patch"
+      },
+      "fix": {
+        "title": "🔧 Fixes",
+        "semver": "patch"
+      },
+      "refactor": {
+        "title": "🧹 Refactors",
+        "semver": "patch"
+      },
+      "docs": {
+        "title": "📖 Documentation",
+        "semver": "patch"
+      },
+      "build": {
+        "title": "📦 Build",
+        "semver": "patch"
+      },
+      "types": {
+        "title": "🌊 Types",
+        "semver": "patch"
+      },
+      "chore": {
+        "title": "🦉 Chore"
+      },
+      "examples": {
+        "title": "🏀 Examples"
+      },
+      "test": {
+        "title": "🧪 Tests"
+      },
+      "style": {
+        "title": "🎨 Styles"
+      },
+      "ci": {
+        "title": "🤖 CI"
+      }
+    }
   }
 }
