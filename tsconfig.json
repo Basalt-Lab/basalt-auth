@@ -1,6 +1,11 @@
 {
   "include": [
-    "source/**/*.ts",
+    "source/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "docs"
   ],
   "typedocOptions": {
     "entryPoints": [
@@ -12,7 +17,7 @@
     "out": "docs"
   },
   "compilerOptions": {
-    "types": ["@types/node"],
+    "types": ["@types/node", "@types/bun"],
     "lib": ["ESNext", "DOM"],
     "target": "ESNext",
     "module": "NodeNext",
@@ -57,6 +62,6 @@
     "allowUnreachableCode": true,                     /* Disable error reporting for unreachable code. */
 
     /* Completeness */
-    "skipLibCheck": true    
+    "skipLibCheck": true
   }
 }
