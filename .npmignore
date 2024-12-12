@@ -32,8 +32,9 @@ pnpm-lock.yaml
 
 # === Project-specific folders ===
 source/
-tests/
+test/
 
 # === Core project files ===
 README.md
 tsconfig.json
+translate.json
