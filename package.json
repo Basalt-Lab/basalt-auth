@@ -62,7 +62,6 @@
     "@stylistic/eslint-plugin": "^2.12.1",
     "@types/bun": "^1.1.14",
     "@types/node": "^22.10.2",
-    "changelogen": "^0.5.7",
     "eslint": "^9.16.0",
     "eslint-plugin-tsdoc": "^0.4.0",
     "tsc-alias": "^1.8.10",
@@ -115,6 +114,11 @@
       "ci": {
         "title": "🤖 CI"
       }
+    },
+    "templates": {
+      "commitMessage": "chore(🦉): v{{newVersion}}",
+      "tagMessage": "v{{newVersion}}",
+      "tagBody": "v{{newVersion}}"
     }
   }
 }
