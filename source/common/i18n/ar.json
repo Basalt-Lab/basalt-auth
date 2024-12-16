@@ -1,0 +1,9 @@
+{
+  "error": {
+    "token_invalid_header": "رأس الرمز غير صالح",
+    "token_invalid_payload": "الحمولة الافتراضية للرمز غير صالحة",
+    "token_invalid_structure": "الرمز ليس لديه الهيكل المتوقع",
+    "token_is_expired": "انتهت صلاحية الرمز ولم يعد صالحًا",
+    "token_signature_invalid": "توقيع الرمز غير صالح"
+  }
+}

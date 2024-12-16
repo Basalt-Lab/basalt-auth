@@ -1,5 +1,45 @@
 # Changelog
 
+## v1.8.0-canary-20241216-8e5127b
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.7.0...v1.8.0-canary-20241216-8e5127b)
+
+### 🚀 Enhancements
+
+- **🚀:** Integrate translation ([a284197](https://github.com/Basalt-Lab/basalt-auth/commit/a284197))
+
+### 🔧 Fixes
+
+- **🔧:** Change email git config in workflow ([b1b3f27](https://github.com/Basalt-Lab/basalt-auth/commit/b1b3f27))
+
+### 🧹 Refactors
+
+- **🧹:** Refacto Error Systems ([80cdd0f](https://github.com/Basalt-Lab/basalt-auth/commit/80cdd0f))
+
+### 📦 Build
+
+- **📦:** Update npm ignore ([c3f5819](https://github.com/Basalt-Lab/basalt-auth/commit/c3f5819))
+- **📦:** Bump node version to 23.4 and update dependencies ([5bc8487](https://github.com/Basalt-Lab/basalt-auth/commit/5bc8487))
+- **📦:** Update npm ignore ([715072e](https://github.com/Basalt-Lab/basalt-auth/commit/715072e))
+- **📦:** Add configuration of changelog + add in dev deps ([83a8e04](https://github.com/Basalt-Lab/basalt-auth/commit/83a8e04))
+
+### 🧪 Tests
+
+- **🧪:** Refactor and improvements tests ([fcd073e](https://github.com/Basalt-Lab/basalt-auth/commit/fcd073e))
+
+### 🎨 Styles
+
+- **🎨:** Auto-fix lint issues ([75e63db](https://github.com/Basalt-Lab/basalt-auth/commit/75e63db))
+
+### 🤖 CI
+
+- **🤖:** Add workflow Pull Request Checker ([2dc68bc](https://github.com/Basalt-Lab/basalt-auth/commit/2dc68bc))
+- **🤖:** Add workflow merge dev and main ([c690869](https://github.com/Basalt-Lab/basalt-auth/commit/c690869))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## [1.7.0](https://github.com/Basalt-Lab/basalt-auth/compare/v1.6.3...v1.7.0) (2024-11-11)
 
 
