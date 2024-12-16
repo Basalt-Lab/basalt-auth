@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.8.1
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.8.0...v1.8.1)
+
+### 🦉 Chore
+
+- **🦉:** V1.8.1-canary-20241216-7596b09 ([29b4a00](https://github.com/Basalt-Lab/basalt-auth/commit/29b4a00))
+
+### ❤️ Contributors
+
+- Github-actions <necrelox@proton.me>
+
 ## v1.8.1-canary-20241216-7596b09
 
 [compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.8.0...v1.8.1-canary-20241216-7596b09)
