@@ -8,6 +8,7 @@ on:
 
 jobs:
   lint:
+    if: contains(github.event.head_commit.message, 'Merge branch')
     name: Check Lint of the code (try to auto-fix if possible)
     runs-on: ubuntu-latest
     steps:
@@ -44,6 +45,7 @@ jobs:
           git push origin HEAD:main
 
   test:
+    if: contains(github.event.head_commit.message, 'Merge branch')
     name: Run tests
     runs-on: ubuntu-latest
     needs: lint
@@ -66,6 +68,7 @@ jobs:
         run: bun run test
 
   stable:
+    if: contains(github.event.head_commit.message, 'Merge branch')
     name: Create Stable Release
     runs-on: ubuntu-latest
     needs: test
@@ -118,7 +121,8 @@ jobs:
       - name: Extract Changelog additions
         id: changelog_diff
         run: |
-          git diff HEAD~1 --unified=0 CHANGELOG.md | grep '^+' | grep -v '++' | sed 's/^+//' > temp.md
+          LAST_CHANGELOG_COMMIT=$(git log -1 --format=%H -- CHANGELOG.md)
+          git diff ${LAST_CHANGELOG_COMMIT}^ ${LAST_CHANGELOG_COMMIT} --unified=0 CHANGELOG.md | grep '^+' | grep -v '++' | sed 's/^+//' > temp.md
           echo "Changelog additions:"
           cat temp.md
 
@@ -140,6 +144,7 @@ jobs:
             --notes "$(cat temp.md)"
 
   doc:
+    if: contains(github.event.head_commit.message, 'Merge branch')
     name: Doc
     runs-on: ubuntu-latest
     needs: stable
@@ -165,6 +170,7 @@ jobs:
           publish_dir: ./docs
 
   publish:
+    if: contains(github.event.head_commit.message, 'Merge branch')
     name: Publish Stable Release
     runs-on: ubuntu-latest
     needs: stable
@@ -174,7 +180,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Pull latest changes from develop
+      - name: Pull latest changes from main
         run: |
           git checkout develop
           git pull origin main --ff-only
