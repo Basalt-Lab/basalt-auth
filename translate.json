@@ -1,0 +1,64 @@
+{
+  "dealerI18n:lang": [
+    "fr",
+    "en",
+    "de",
+    "es",
+    "it",
+    "ja",
+    "ko",
+    "ar"
+  ],
+  "error": {
+    "token_invalid_header": {
+      "lang:ar": "رأس الرمز غير صالح",
+      "lang:de": "Der Token-Header ist ungültig",
+      "lang:en": "The token header is not valid",
+      "lang:es": "El encabezado del token no es válido",
+      "lang:fr": "L'en-tête du jeton n'est pas valide",
+      "lang:it": "L'intestazione del token non è valida",
+      "lang:ja": "トークンヘッダーが無効です",
+      "lang:ko": "토큰 헤더가 유효하지 않습니다"
+    },
+    "token_invalid_payload": {
+      "lang:ar": "الحمولة الافتراضية للرمز غير صالحة",
+      "lang:de": "Der Token-Payload ist ungültig",
+      "lang:en": "The token payload is not valid",
+      "lang:es": "La carga útil del token no es válida",
+      "lang:fr": "Le corps du jeton n'est pas valide",
+      "lang:it": "Il payload del token non è valido",
+      "lang:ja": "トークンペイロードが無効です",
+      "lang:ko": "토큰 페이로드가 유효하지 않습니다"
+    },
+    "token_invalid_structure": {
+      "lang:ar": "الرمز ليس لديه الهيكل المتوقع",
+      "lang:de": "Das Token hat nicht die erwartete Struktur",
+      "lang:en": "The token does not have the expected structure",
+      "lang:es": "El token no tiene la estructura esperada",
+      "lang:fr": "Le jeton n'a pas la structure attendue",
+      "lang:it": "Il token non ha la struttura prevista",
+      "lang:ja": "トークンの構造が期待されるものではありません",
+      "lang:ko": "토큰에 예상되는 구조가 없습니다"
+    },
+    "token_is_expired": {
+      "lang:ar": "انتهت صلاحية الرمز ولم يعد صالحًا",
+      "lang:de": "Der Token ist abgelaufen und nicht mehr gültig",
+      "lang:en": "The token has expired and is no longer valid",
+      "lang:es": "El token ha caducado y ya no es válido",
+      "lang:fr": "Le jeton a expiré et n'est plus valide",
+      "lang:it": "Il token è scaduto e non è più valido",
+      "lang:ja": "トークンの有効期限が切れており、もはや有効ではありません",
+      "lang:ko": "토큰이 만료되었으며 더 이상 유효하지 않습니다"
+    },
+    "token_signature_invalid": {
+      "lang:ar": "توقيع الرمز غير صالح",
+      "lang:de": "Die Signatur des Tokens ist ungültig",
+      "lang:en": "The token signature is not valid",
+      "lang:es": "La firma del token no es válida",
+      "lang:fr": "La signature du jeton n'est pas valide",
+      "lang:it": "La firma del token non è valida",
+      "lang:ja": "トークンの署名が無効です",
+      "lang:ko": "토큰 서명이 유효하지 않습니다"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { randomUUID, sign as sig, verify as ver } from 'crypto';
 
 import { BasaltError } from '#/common/error/basalt.error.ts';
-import { ErrorKeys } from '#/common/error/keys.error.ts';
+import { GLOBAL_ERRORS } from '#/common/error/global.error.ts';
 import type { BasaltTokenHeader } from '#/common/type/data/basaltTokenHeader.data.ts';
 import type { BasaltTokenSignResult } from '#/common/type/data/basaltTokenSignResult.data.ts';
 import type { KeyPairED25519 } from '#/common/type/data/keyPairED25519.data.ts';
@@ -9,19 +9,19 @@ import { base64Decode, base64Encode } from '#/common/util/base64.util.ts';
 import { generateKeyPairED25519 } from '#/common/util/keyGenerator.util.ts';
 
 /**
- * Enumeration of token expiry times in milliseconds.
+ * Constants representing the expiry time of a token in milliseconds.
  */
-export enum BasaltTokenExpiry {
-    HALF_HOUR = 1800000,
-    ONE_HOUR = 3600000,
-    TWO_HOURS = 7200000,
-    FOUR_HOURS = 14400000,
-    FIVE_HOURS = 18000000,
-    SIX_HOURS = 21600000,
-    TWELVE_HOURS = 43200000,
-    ONE_DAY = 86400000,
-    ONE_WEEK = 604800000
-}
+export const BASALT_TOKEN_EXPIRY = {
+    HALF_HOUR: 1800000,
+    ONE_HOUR: 3600000,
+    TWO_HOURS: 7200000,
+    FOUR_HOURS: 14400000,
+    FIVE_HOURS: 18000000,
+    SIX_HOURS: 21600000,
+    TWELVE_HOURS: 43200000,
+    ONE_DAY: 86400000,
+    ONE_WEEK: 604800000
+};
 
 /**
  * Validates the structure of the provided token.
@@ -90,16 +90,15 @@ function _buildSignature(header: string, payload: string, privateKey: string, pa
  *
  * @param token - The authentication token.
  *
- * @throws ({@link BasaltError}) If the token structure is invalid. ({@link ErrorKeys.TOKEN_INVALID_STRUCTURE})
- * @throws ({@link BasaltError}) If the token header is invalid. ({@link ErrorKeys.TOKEN_INVALID_HEADER})
+ * @throws ({@link BasaltError}) If the token structure is invalid. ({@link GLOBAL_ERRORS.TOKEN_INVALID_STRUCTURE})
+ * @throws ({@link BasaltError}) If the token header is invalid. ({@link GLOBAL_ERRORS.TOKEN_INVALID_HEADER})
  *
  * @returns The parsed header of the token. ({@link BasaltTokenHeader})
  */
 function getHeader(token: string): BasaltTokenHeader {
     if (!_structureIsValid(token))
         throw new BasaltError({
-            messageKey: ErrorKeys.TOKEN_INVALID_STRUCTURE,
-            code: 401
+            key: GLOBAL_ERRORS.TOKEN_INVALID_STRUCTURE
         });
     const [header]: string[] = token.split('.');
     try {
@@ -108,8 +107,7 @@ function getHeader(token: string): BasaltTokenHeader {
         ) as BasaltTokenHeader;
     } catch {
         throw new BasaltError({
-            messageKey: ErrorKeys.TOKEN_INVALID_HEADER,
-            code: 401
+            key: GLOBAL_ERRORS.TOKEN_INVALID_HEADER
         });
     }
 }
@@ -119,7 +117,7 @@ function getHeader(token: string): BasaltTokenHeader {
  *
  * @param token - The authentication token.
  *
- * @throws ({@link BasaltError}) If the token structure is invalid. ({@link ErrorKeys.TOKEN_INVALID_STRUCTURE})
+ * @throws ({@link BasaltError}) If the token structure is invalid. ({@link GLOBAL_ERRORS.TOKEN_INVALID_STRUCTURE})
  *
  * @returns The UUID of the token.
  */
@@ -132,7 +130,7 @@ function getTokenUuid(token: string): string {
  *
  * @param token - The authentication token.
  *
- * @throws ({@link BasaltError}) If the token structure is invalid. ({@link ErrorKeys.TOKEN_INVALID_STRUCTURE})
+ * @throws ({@link BasaltError}) If the token structure is invalid. ({@link GLOBAL_ERRORS.TOKEN_INVALID_STRUCTURE})
  *
  * @returns The expiration date of the token.
  */
@@ -145,7 +143,7 @@ function getExpirationDate(token: string): Date {
  *
  * @param token - The authentication token.
  *
- * @throws ({@link BasaltError}) If the token structure is invalid. ({@link ErrorKeys.TOKEN_INVALID_STRUCTURE})
+ * @throws ({@link BasaltError}) If the token structure is invalid. ({@link GLOBAL_ERRORS.TOKEN_INVALID_STRUCTURE})
  *
  * @returns The intended audience of the token.
  */
@@ -158,7 +156,7 @@ function getAudience(token: string): string {
  *
  * @param token - The authentication token.
  *
- * @throws ({@link BasaltError} If the token structure is invalid. ({@link ErrorKeys.TOKEN_INVALID_STRUCTURE})
+ * @throws ({@link BasaltError} If the token structure is invalid. ({@link GLOBAL_ERRORS.TOKEN_INVALID_STRUCTURE})
  *
  * @returns The issuer of the token.
  */
@@ -173,16 +171,15 @@ function getIssuer(token: string): string {
  *
  * @param token - The authentication token.
  *
- * @throws ({@link BasaltError}) If the token structure is invalid. ({@link ErrorKeys.TOKEN_INVALID_STRUCTURE})
- * @throws ({@link BasaltError}) If the token payload is invalid. ({@link ErrorKeys.TOKEN_INVALID_PAYLOAD})
+ * @throws ({@link BasaltError}) If the token structure is invalid. ({@link GLOBAL_ERRORS.TOKEN_INVALID_STRUCTURE})
+ * @throws ({@link BasaltError}) If the token payload is invalid. ({@link GLOBAL_ERRORS.TOKEN_INVALID_PAYLOAD})
  *
  * @returns The parsed payload of the token. ({@link T})
  */
 function getPayload<T extends object>(token: string): T {
     if (!_structureIsValid(token))
         throw new BasaltError({
-            messageKey: ErrorKeys.TOKEN_INVALID_STRUCTURE,
-            code: 401
+            key: GLOBAL_ERRORS.TOKEN_INVALID_STRUCTURE
         });
     const [, payload]: string[] = token.split('.');
     try {
@@ -191,8 +188,7 @@ function getPayload<T extends object>(token: string): T {
         ) as T;
     } catch {
         throw new BasaltError({
-            messageKey: ErrorKeys.TOKEN_INVALID_PAYLOAD,
-            code: 401
+            key: GLOBAL_ERRORS.TOKEN_INVALID_PAYLOAD
         });
     }
 }
@@ -202,7 +198,7 @@ function getPayload<T extends object>(token: string): T {
  *
  * @param token - The authentication token.
  *
- * @throws ({@link BasaltError}) If the token structure is invalid. ({@link ErrorKeys.TOKEN_INVALID_STRUCTURE})
+ * @throws ({@link BasaltError}) If the token structure is invalid. ({@link GLOBAL_ERRORS.TOKEN_INVALID_STRUCTURE})
  *
  * @returns True if the token has expired, false otherwise.
  */
@@ -237,7 +233,7 @@ function isExpired(token: string): boolean {
  */
 function sign<T extends object>(
     payload: T,
-    expirationMs: number = BasaltTokenExpiry.ONE_HOUR,
+    expirationMs: number = BASALT_TOKEN_EXPIRY.ONE_HOUR,
     issuer = 'Basalt-Issuer',
     audience = 'Basalt-Audience'
 ): BasaltTokenSignResult {
@@ -261,33 +257,24 @@ function sign<T extends object>(
  * @param token - The authentication token to verify.
  * @param publicKey - The public key corresponding to the private key used to sign the token.
  *
- * @throws ({@link BasaltError}) If the token structure is invalid. ({@link ErrorKeys.TOKEN_INVALID_STRUCTURE})
- * @throws ({@link BasaltError}) If the token has expired. ({@link ErrorKeys.TOKEN_IS_EXPIRED})
- * @throws ({@link BasaltError}) If the token signature is invalid. ({@link ErrorKeys.TOKEN_SIGNATURE_INVALID})
+ * @throws ({@link BasaltError}) If the token structure is invalid. ({@link GLOBAL_ERRORS.TOKEN_INVALID_STRUCTURE})
+ * @throws ({@link BasaltError}) If the token has expired. ({@link GLOBAL_ERRORS.TOKEN_IS_EXPIRED})
+ * @throws ({@link BasaltError}) If the token signature is invalid. ({@link GLOBAL_ERRORS.TOKEN_SIGNATURE_INVALID})
  */
 function verify(token: string, publicKey: string): void {
-    if (!_structureIsValid(token))
-        throw new BasaltError({
-            messageKey: ErrorKeys.TOKEN_INVALID_STRUCTURE,
-            code: 401
-        });
     if (isExpired(token))
         throw new BasaltError({
-            messageKey: ErrorKeys.TOKEN_IS_EXPIRED,
-            code: 401
+            key: GLOBAL_ERRORS.TOKEN_IS_EXPIRED
         });
     const [header, payload, signature]: string[] = token.split('.');
     try {
         if (!ver(null, Buffer.from(`${header}.${payload}`), publicKey, Buffer.from(signature as string, 'base64')))
             throw new BasaltError({
-                messageKey: ErrorKeys.TOKEN_SIGNATURE_INVALID,
-                code: 401
+                key: GLOBAL_ERRORS.TOKEN_SIGNATURE_INVALID
             });
-    } catch (error) {
+    } catch {
         throw new BasaltError({
-            messageKey: ErrorKeys.TOKEN_SIGNATURE_INVALID,
-            detail: error,
-            code: 401
+            key: GLOBAL_ERRORS.TOKEN_SIGNATURE_INVALID
         });
     }
 }

@@ -1,0 +1,9 @@
+{
+  "error": {
+    "token_invalid_header": "トークンヘッダーが無効です",
+    "token_invalid_payload": "トークンペイロードが無効です",
+    "token_invalid_structure": "トークンの構造が期待されるものではありません",
+    "token_is_expired": "トークンの有効期限が切れており、もはや有効ではありません",
+    "token_signature_invalid": "トークンの署名が無効です"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "error": {
+    "token_invalid_header": "L'en-tête du jeton n'est pas valide",
+    "token_invalid_payload": "Le corps du jeton n'est pas valide",
+    "token_invalid_structure": "Le jeton n'a pas la structure attendue",
+    "token_is_expired": "Le jeton a expiré et n'est plus valide",
+    "token_signature_invalid": "La signature du jeton n'est pas valide"
+  }
+}

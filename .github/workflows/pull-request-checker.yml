@@ -1,0 +1,67 @@
+name: Pull Request Checker
+run-name: Pull Request Checker
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  lint:
+    name: Check Lint of the code (try to auto-fix if possible)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Run Lint and try to auto-fix if possible
+        run: |
+          bun run lint || bun run fix-lint && bun run lint
+          if [ $? -ne 0 ]; then
+            echo "Linting failed even after auto-fix. Exiting..."
+            exit 1
+          fi
+
+      - name: Commit Changes
+        id: commit_changes
+        run: |
+          git config --local user.email "necrelox@proton.me"
+          git config --local user.name "github-actions"
+          git add .
+          git commit -m "style(🎨): Auto-fix lint issues" || echo "No changes to commit"
+      - name: Push changes
+        run: |
+          git push origin HEAD:${{ github.head_ref }}
+
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Check if build
+        run: bun run build
+
+      - name: Run tests
+        run: bun run test
