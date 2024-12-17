@@ -1,9 +1,11 @@
 {
   "error": {
-    "token_invalid_header": "L'intestazione del token non è valida",
-    "token_invalid_payload": "Il payload del token non è valido",
-    "token_invalid_structure": "Il token non ha la struttura prevista",
-    "token_is_expired": "Il token è scaduto e non è più valido",
-    "token_signature_invalid": "La firma del token non è valida"
+    "basalt-auth": {
+      "token_invalid_header": "L'intestazione del token non è valida",
+      "token_invalid_payload": "Il payload del token non è valido",
+      "token_invalid_structure": "Il token non ha la struttura prevista",
+      "token_is_expired": "Il token è scaduto e non è più valido",
+      "token_signature_invalid": "La firma del token non è valida"
+    }
   }
 }
