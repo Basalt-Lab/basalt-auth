@@ -1,9 +1,11 @@
 {
   "error": {
-    "token_invalid_header": "El encabezado del token no es válido",
-    "token_invalid_payload": "La carga útil del token no es válida",
-    "token_invalid_structure": "El token no tiene la estructura esperada",
-    "token_is_expired": "El token ha caducado y ya no es válido",
-    "token_signature_invalid": "La firma del token no es válida"
+    "basalt-auth": {
+      "token_invalid_header": "El encabezado del token no es válido",
+      "token_invalid_payload": "La carga útil del token no es válida",
+      "token_invalid_structure": "El token no tiene la estructura esperada",
+      "token_is_expired": "El token ha caducado y ya no es válido",
+      "token_signature_invalid": "La firma del token no es válida"
+    }
   }
 }

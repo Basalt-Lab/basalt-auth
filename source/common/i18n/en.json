@@ -1,9 +1,11 @@
 {
   "error": {
-    "token_invalid_header": "The token header is not valid",
-    "token_invalid_payload": "The token payload is not valid",
-    "token_invalid_structure": "The token does not have the expected structure",
-    "token_is_expired": "The token has expired and is no longer valid",
-    "token_signature_invalid": "The token signature is not valid"
+    "basalt-auth": {
+      "token_invalid_header": "The token header is not valid",
+      "token_invalid_payload": "The token payload is not valid",
+      "token_invalid_structure": "The token does not have the expected structure",
+      "token_is_expired": "The token has expired and is no longer valid",
+      "token_signature_invalid": "The token signature is not valid"
+    }
   }
 }
