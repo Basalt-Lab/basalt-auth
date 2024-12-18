@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.9.2-canary-20241218-1058d00
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.1...v1.9.2-canary-20241218-1058d00)
+
+### 🤖 CI
+
+- **🤖:** Import GPG and autosign commit ([b60a6c3](https://github.com/Basalt-Lab/basalt-auth/commit/b60a6c3))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.9.1
 
 [compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.1-canary-20241218-efa34f6...v1.9.1)
