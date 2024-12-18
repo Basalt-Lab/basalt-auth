@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.9.1-canary-20241218-efa34f6
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.1-canary-20241218-dda4aa6...v1.9.1-canary-20241218-efa34f6)
+
+### 🤖 CI
+
+- **🤖:** Update changelog extract to compare against previous main commit ([26251a9](https://github.com/Basalt-Lab/basalt-auth/commit/26251a9))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.9.1-canary-20241218-dda4aa6
 
 [compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.0...v1.9.1-canary-20241218-dda4aa6)
