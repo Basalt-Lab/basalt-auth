@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.9.1-canary-20241218-dda4aa6
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.0...v1.9.1-canary-20241218-dda4aa6)
+
+### 🤖 CI
+
+- **🤖:** Add SSH key to workflow for push in protected branches ([f51727a](https://github.com/Basalt-Lab/basalt-auth/commit/f51727a))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.9.0
 
 [compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.0-canary-20241217-0dee47b...v1.9.0)
