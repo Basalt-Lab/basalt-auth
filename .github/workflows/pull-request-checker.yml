@@ -16,6 +16,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+          ssh-key: ${{ secrets.BASALT_SSH }}
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -38,8 +39,13 @@ jobs:
         run: |
           git config --local user.email "necrelox@proton.me"
           git config --local user.name "github-actions"
-          git add .
-          git commit -m "style(🎨): Auto-fix lint issues" || echo "No changes to commit"
+          if git diff --name-only | grep -E '\.(js|ts|jsx|tsx|css|scss|json|md|yml|yaml)$'; then
+            git add .
+            git commit -m "style(🎨): Auto-fix lint issues"
+          else
+            echo "No lint-related changes to commit."
+          fi
+
       - name: Push changes
         run: |
           git push origin HEAD:${{ github.head_ref }}
@@ -51,6 +57,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          ssh-key: ${{ secrets.BASALT_SSH }}
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
