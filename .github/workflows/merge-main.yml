@@ -35,6 +35,13 @@ jobs:
             exit 1
           fi
 
+      - name: Import GPG key
+        run: |
+          echo "${{ secrets.BASALT_GPG }}" | gpg --batch --import
+          git config --local user.signingkey "$(gpg --list-keys --with-colons | grep '^pub' | cut -d':' -f5 | head -n1)"
+          git config --local commit.gpgsign true
+          git config --local tag.gpgsign true
+
       - name: Commit Changes
         id: commit_changes
         run: |
