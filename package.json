@@ -1,6 +1,6 @@
 {
   "name": "@basalt-lab/basalt-auth",
-  "version": "1.9.1-canary-20241218-efa34f6",
+  "version": "1.9.1",
   "description": "Authentication module for Basalt Framework",
   "keywords": [
     "basalt-auth",

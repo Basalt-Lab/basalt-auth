@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.9.1
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.1-canary-20241218-efa34f6...v1.9.1)
+
 ## v1.9.1-canary-20241218-efa34f6
 
 [compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.1-canary-20241218-dda4aa6...v1.9.1-canary-20241218-efa34f6)
