@@ -134,9 +134,9 @@ jobs:
       - name: Extract Changelog additions
         id: changelog_diff
         run: |
-          LAST_CHANGELOG_COMMIT=$(git log -1 --format=%H -- CHANGELOG.md)
-          git diff ${LAST_CHANGELOG_COMMIT}^ ${LAST_CHANGELOG_COMMIT} --unified=0 CHANGELOG.md | grep '^+' | grep -v '++' | sed 's/^+//' > temp.md
-          echo "Changelog additions:"
+          PREV_MAIN=$(git log -1 --pretty=%P | awk '{print $1}')
+          git diff ${PREV_MAIN} HEAD --unified=0 CHANGELOG.md | grep '^+' | grep -v '++' | sed 's/^+//' > temp.md
+          echo "Changelog additions between previous main and current main:"
           cat temp.md
 
       - name: Extract the latest tag
