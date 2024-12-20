@@ -163,6 +163,12 @@ jobs:
             --title "Stable Release ${{ env.tag_name }}" \
             --notes "$(cat temp.md)"
 
+      - name: Rebase develop branch to main
+        run: |
+          git checkout develop
+          git rebase main
+          git push origin develop
+
   doc:
     if: contains(github.event.head_commit.message, 'Merge branch')
     name: Doc
