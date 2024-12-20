@@ -103,9 +103,6 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Install Dependencies
-        run: bun install
-
       - name: Fetch tags
         run: git fetch --tags --prune
 

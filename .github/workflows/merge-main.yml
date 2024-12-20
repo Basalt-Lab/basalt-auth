@@ -103,9 +103,6 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Install Dependencies
-        run: bun install
-
       - name: Fetch tags
         run: git fetch --tags --prune
 
@@ -162,6 +159,12 @@ jobs:
           gh release create "${{ env.tag_name }}" \
             --title "Stable Release ${{ env.tag_name }}" \
             --notes "$(cat temp.md)"
+
+      - name: Rebase develop branch to main
+        run: |
+          git checkout develop
+          git rebase main
+          git push origin develop
 
   doc:
     if: contains(github.event.head_commit.message, 'Merge branch')
