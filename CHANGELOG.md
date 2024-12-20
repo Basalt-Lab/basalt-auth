@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.9.3-canary-20241220-daf9b23
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.2...v1.9.3-canary-20241220-daf9b23)
+
+### 🤖 CI
+
+- **🤖:** Add rebase step for develop branch in merge workflow ([6b42a12](https://github.com/Basalt-Lab/basalt-auth/commit/6b42a12))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.9.2
 
 [compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.2-canary-20241218-1058d00...v1.9.2)
