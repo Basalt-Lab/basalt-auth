@@ -1,25 +1,24 @@
 import { describe, expect, test } from 'bun:test';
 
-import { BasaltError, type BasaltErrorOptions } from '../../../source/common/error/basalt.error.ts';
-import { GLOBAL_ERRORS } from '../../../source/common/error/global.error.ts';
+import { BasaltError, type BasaltErrorOptions } from '#/error/basaltError.ts';
 
 
 describe('BasaltError', () => {
     describe('constructor', () => {
         test('should create a new BasaltError instance with specific properties when valid options are provided', () => {
             const basaltErrorOptions: BasaltErrorOptions<{ token: string }> = {
-                key: GLOBAL_ERRORS.TOKEN_INVALID_STRUCTURE,
-                cause: { token: 'invalidToken' },
+                key: ['error.basalt-helper.example', 500],
+                cause: { token: 'invalidToken' }
             };
-            const basaltError: BasaltError<{ token: string }> = new BasaltError(basaltErrorOptions);
+            const basaltError = new BasaltError<{ token: string }>(basaltErrorOptions);
             expect(basaltError).toBeInstanceOf(BasaltError);
             expect(basaltError).toHaveProperty('cause', { token: 'invalidToken' });
-            expect(basaltError).toHaveProperty('code', 401);
+            expect(basaltError).toHaveProperty('code', 500);
             expect(basaltError).toHaveProperty('column');
             expect(basaltError).toHaveProperty('date');
             expect(basaltError).toHaveProperty('fileName');
             expect(basaltError).toHaveProperty('line');
-            expect(basaltError).toHaveProperty('message', 'error.basalt-auth.token_invalid_structure');
+            expect(basaltError).toHaveProperty('message', 'error.basalt-helper.example');
             expect(basaltError).toHaveProperty('name', 'BasaltError');
             expect(basaltError).toHaveProperty('stack');
             expect(basaltError).toHaveProperty('uuidError');
@@ -45,8 +44,10 @@ describe('BasaltError', () => {
                 throw new BasaltError();
             } catch (error) {
                 expect(error).toBeInstanceOf(BasaltError);
-                expect(error.stack).toBeDefined();
-                expect(error.stack).toContain('BasaltError');
+                if (error instanceof BasaltError) {
+                    expect(error.stack).toBeDefined();
+                    expect(error.stack).toContain('BasaltError');
+                }
             }
         });
 
@@ -55,12 +56,14 @@ describe('BasaltError', () => {
                 throw new BasaltError();
             } catch (error) {
                 expect(error).toBeInstanceOf(BasaltError);
-                expect(error.fileName).toBeDefined();
-                expect(error.line).toBeDefined();
-                expect(error.column).toBeDefined();
-                expect(typeof error.fileName).toBe('string');
-                expect(typeof error.line).toBe('number');
-                expect(typeof error.column).toBe('number');
+                if (error instanceof BasaltError) {
+                    expect(error.fileName).toBeDefined();
+                    expect(error.line).toBeDefined();
+                    expect(error.column).toBeDefined();
+                    expect(typeof error.fileName).toBe('string');
+                    expect(typeof error.line).toBe('number');
+                    expect(typeof error.column).toBe('number');
+                }
             }
         });
     });

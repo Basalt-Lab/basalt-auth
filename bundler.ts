@@ -1,3 +1,5 @@
+import dts from 'bun-plugin-dts';
+
 import pkg from './package.json';
 
 const dependencies = 'dependencies' in pkg ? Object.keys(pkg.dependencies ?? {}) : [];
@@ -5,19 +7,31 @@ const devDependencies = 'devDependencies' in pkg ? Object.keys(pkg.devDependenci
 const peerDependencies = 'peerDependencies' in pkg ? Object.keys(pkg.peerDependencies ?? {}) : [];
 
 await Bun.build({
+    target: 'node',
     external: [...dependencies, ...devDependencies, ...peerDependencies],
     root: './source',
     entrypoints: [
-        './source/index.ts',
-        './source/common/error/index.ts',
-        './source/common/type/data/index.ts',
-        './source/domain/service/basaltToken.service.ts',
-        './source/common/i18n/index.ts'
+        './source/core/index.ts',
+
+        './source/error/index.ts',
+        './source/error/key/index.ts',
+
+        './source/i18n/index.ts',
+
+        './source/types/index.ts',
+
+        './source/index.ts'
+    ],
+    plugins: [
+        dts({
+            output: {
+                noBanner: true
+            }
+        })
     ],
     outdir: './build',
     splitting: true,
     format: 'esm',
     minify: true,
-    sourcemap: process.env.NODE_ENV === 'development' ? 'external' : 'none',
-    target: 'node',
+    sourcemap: 'none'
 });

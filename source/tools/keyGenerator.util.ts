@@ -1,6 +1,6 @@
 import { generateKeyPairSync, randomUUID, type KeyPairSyncResult } from 'crypto';
 
-import type { KeyPairED25519 } from '#/common/type/data/keyPairED25519.data.ts';
+import type { KeyPairED25519 } from '#/types/data/keyPairED25519';
 
 /**
  * Generate a new ED25519 key pair with a passphrase and return it
