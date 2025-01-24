@@ -1,5 +1,29 @@
 # Changelog
 
+## v1.9.5-canary-20250124-c0dfb83
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.4...v1.9.5-canary-20250124-c0dfb83)
+
+### 🧹 Refactors
+
+- **🧹:** Simplify error constants, tsdoc, basalt error ([b5cd09a](https://github.com/Basalt-Lab/basalt-auth/commit/b5cd09a))
+- **🧹:** Replace randomUUID with randomUUIDv7 from bun for UUID ([2b3a3be](https://github.com/Basalt-Lab/basalt-auth/commit/2b3a3be))
+
+### 📖 Documentation
+
+- **📖:** Update README and package description ([e51d1fe](https://github.com/Basalt-Lab/basalt-auth/commit/e51d1fe))
+
+### 📦 Build
+
+- **📦:** Update devDependencies to latest versions ([d482d6a](https://github.com/Basalt-Lab/basalt-auth/commit/d482d6a))
+- **📦:** Change build target to bun ([700a060](https://github.com/Basalt-Lab/basalt-auth/commit/700a060))
+- **📦:** Update .npmignore ([86593db](https://github.com/Basalt-Lab/basalt-auth/commit/86593db))
+- **📦:** Reorder dependencies in package.json for clarity ([7efc5b1](https://github.com/Basalt-Lab/basalt-auth/commit/7efc5b1))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.9.4
 
 [compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.4-canary-20250107-fa9edf8...v1.9.4)

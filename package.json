@@ -1,6 +1,6 @@
 {
   "name": "@basalt-lab/basalt-auth",
-  "version": "1.9.4",
+  "version": "1.9.5-canary-20250124-c0dfb83",
   "description": "A sample authentication library each token has key pair (public and private)",
   "keywords": [
     "bun",
