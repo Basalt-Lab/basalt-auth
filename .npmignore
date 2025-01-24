@@ -7,8 +7,6 @@
 
 # === Archives and build-related files ===
 *.tgz
-bun.lockb
-pnpm-lock.yaml
 
 # === Bundler configuration files ===
 bundler.ts
@@ -26,7 +24,7 @@ jest.config.json
 node_modules/
 package-lock.json
 yarn.lock
-bun.lockb
+bun.lock
 pnpm-lock.yaml
 
 # === Project-specific folders ===
