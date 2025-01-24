@@ -1,4 +1,5 @@
-import { randomUUID, sign as sig, verify as ver } from 'crypto';
+import { randomUUIDv7 } from 'bun';
+import { sign as sig, verify as ver } from 'crypto';
 
 import { BasaltError } from '#/error/basaltError';
 import { GLOBAL_KEY_ERROR } from '#/error/key/globalKeyError';
@@ -237,7 +238,7 @@ function sign<T extends object>(
     issuer = 'Basalt-Issuer',
     audience = 'Basalt-Audience'
 ): BasaltTokenSignResult {
-    const tokenUUid: string = randomUUID();
+    const tokenUUid: string = randomUUIDv7();
     const keyPair: KeyPairED25519 = generateKeyPairED25519();
 
     const headerStringify: string = _buildHeader(tokenUUid, expirationMs, issuer, audience);
