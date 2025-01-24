@@ -63,7 +63,7 @@ export class BasaltError<const T = unknown> extends Error {
     /**
      * The error code. (HTTP status code)
      */
-    private readonly _code: number;
+    private readonly _statusCode: number;
 
     /**
      * The fileName where the error occurred (if available).
@@ -89,7 +89,7 @@ export class BasaltError<const T = unknown> extends Error {
         super(basaltErrorOptions?.key?.[0] || 'error.unknown');
         super.name = 'BasaltError';
         this.cause = basaltErrorOptions?.cause;
-        this._code = basaltErrorOptions?.key?.[1] || 500;
+        this._statusCode = basaltErrorOptions?.key?.[1] || 500;
         const stackLine = this.stack?.split('\n')[1]?.trim();
         const match = stackLine?.match(/\(?(.+):(\d+):(\d+)\)?$/);
         if (match) {
@@ -116,8 +116,8 @@ export class BasaltError<const T = unknown> extends Error {
     /**
      * The error code. (HTTP status code)
      */
-    public get code(): number {
-        return this._code;
+    public get statusCode(): number {
+        return this._statusCode;
     }
 
     /**
@@ -151,7 +151,7 @@ export class BasaltError<const T = unknown> extends Error {
         uuid: string;
         date: Date;
         message: string;
-        code: number;
+        statusCode: number;
         cause: T | undefined;
         fileName: string;
         line: number;
@@ -162,7 +162,7 @@ export class BasaltError<const T = unknown> extends Error {
             uuid: this._uuid,
             date: this._date,
             message: this.message,
-            code: this._code,
+            statusCode: this._statusCode,
             cause: this.cause,
             fileName: this._fileName,
             line: this._line,

@@ -12,7 +12,7 @@ describe('BasaltError', () => {
             expect(basaltError).toBeInstanceOf(BasaltError);
             expect(basaltError).toHaveProperty('uuid');
             expect(basaltError).toHaveProperty('date');
-            expect(basaltError).toHaveProperty('code', 123);
+            expect(basaltError).toHaveProperty('statusCode', 123);
             expect(basaltError).toHaveProperty('fileName');
             expect(basaltError).toHaveProperty('line');
             expect(basaltError).toHaveProperty('column');
@@ -27,7 +27,7 @@ describe('BasaltError', () => {
             expect(basaltError).toBeInstanceOf(BasaltError);
             expect(basaltError).toHaveProperty('uuid');
             expect(basaltError).toHaveProperty('date');
-            expect(basaltError).toHaveProperty('code', 500);
+            expect(basaltError).toHaveProperty('statusCode', 500);
             expect(basaltError).toHaveProperty('fileName');
             expect(basaltError).toHaveProperty('line');
             expect(basaltError).toHaveProperty('column');
@@ -49,7 +49,7 @@ describe('BasaltError', () => {
             expect(json).toHaveProperty('uuid');
             expect(json).toHaveProperty('date');
             expect(json).toHaveProperty('message', 'error.basalt-package.example');
-            expect(json).toHaveProperty('code', 123);
+            expect(json).toHaveProperty('statusCode', 123);
             expect(json).toHaveProperty('cause', { eg: 'example' });
             expect(json).toHaveProperty('fileName');
             expect(json).toHaveProperty('line');
