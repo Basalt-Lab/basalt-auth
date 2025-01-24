@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.9.5-canary-20250124-39211c8
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.5-canary-20250124-5f978a2...v1.9.5-canary-20250124-39211c8)
+
+### 🧹 Refactors
+
+- **🧹:** Rename error code to statusCode for clarity ([ce9faec](https://github.com/Basalt-Lab/basalt-auth/commit/ce9faec))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.9.5-canary-20250124-5f978a2
 
 [compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.5-canary-20250124-c0dfb83...v1.9.5-canary-20250124-5f978a2)
