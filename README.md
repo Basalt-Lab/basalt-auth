@@ -5,14 +5,16 @@
 - [📦 Basalt-auth](#-basalt-auth)
   - [📌 Table of contents](#-table-of-contents)
   - [📝 Description](#-description)
-  - [🌟 Documentation](#-documentation)
+  - [🌟 Documentation](#-Documentation)
   - [🔧 Installation](#-installation)
   - [⚖️ License](#️-license)
   - [📧 Contact](#-contact)
 
 ## 📝 Description
 
-`Basalt-auth` is a library designed to create a secure and user-friendly authentication system.  
+> ONLY FOR BUN
+
+**Basalt-auth** is a library designed to create a secure and user-friendly authentication system.  
 It is inspired by [JSON Web Tokens (JWT)](https://jwt.io/), with some differences.
 
 One of the main differences of `Basalt-auth` is the key management: instead of using a global secret key, it generates a unique key pair for each token, thereby increasing the security of the individual session.
@@ -28,14 +30,8 @@ Only the public key and the token are stored, ensuring that interactions remain 
 
 ## 🔧 Installation
 
-NPM:
 ```bash
-npm i @basalt-lab/basalt-auth
-```
-
-PNPM:
-```bash
-pnpm i @basalt-lab/basalt-auth
+bun add @basalt-lab/basalt-auth
 ```
 
 ## ⚖️ License

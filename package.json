@@ -1,8 +1,9 @@
 {
   "name": "@basalt-lab/basalt-auth",
   "version": "1.9.4",
-  "description": "Authentication module for Basalt Framework",
+  "description": "A sample authentication library each token has key pair (public and private)",
   "keywords": [
+    "bun",
     "basalt-auth",
     "basalt",
     "auth",
