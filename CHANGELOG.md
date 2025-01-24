@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.9.5-canary-20250124-5f978a2
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.5-canary-20250124-c0dfb83...v1.9.5-canary-20250124-5f978a2)
+
+### 📦 Build
+
+- **📦:** Disable minify identifiers ([dae060f](https://github.com/Basalt-Lab/basalt-auth/commit/dae060f))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.9.5-canary-20250124-c0dfb83
 
 [compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.4...v1.9.5-canary-20250124-c0dfb83)
