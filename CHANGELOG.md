@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.9.5-canary-20250128-d4fdc29
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.5-canary-20250124-39211c8...v1.9.5-canary-20250128-d4fdc29)
+
+### 📦 Build
+
+- **📦:** Use tsc to generate .d.ts and tsc alias for relative path ([bde8cf6](https://github.com/Basalt-Lab/basalt-auth/commit/bde8cf6))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.9.5-canary-20250124-39211c8
 
 [compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.5-canary-20250124-5f978a2...v1.9.5-canary-20250124-39211c8)
