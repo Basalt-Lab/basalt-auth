@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.9.5-canary-20250129-ee94487
+
+[compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.5-canary-20250128-d4fdc29...v1.9.5-canary-20250129-ee94487)
+
+### 🧹 Refactors
+
+- **🧹:** Update error message keys for basalt-auth localization ([9d40e8d](https://github.com/Basalt-Lab/basalt-auth/commit/9d40e8d))
+
+### 📦 Build
+
+- **📦:** Add tsconfig.dts.json to .npmignore ([5a13713](https://github.com/Basalt-Lab/basalt-auth/commit/5a13713))
+- **📦:** Update dependencies ([f48ad7b](https://github.com/Basalt-Lab/basalt-auth/commit/f48ad7b))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.9.5-canary-20250128-d4fdc29
 
 [compare changes](https://github.com/Basalt-Lab/basalt-auth/compare/v1.9.5-canary-20250124-39211c8...v1.9.5-canary-20250128-d4fdc29)
