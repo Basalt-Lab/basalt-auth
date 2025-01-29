@@ -1,6 +1,6 @@
 {
-  "error": {
-    "basalt-auth": {
+  "basalt-auth": {
+    "error": {
       "token_invalid_header": "رأس الرمز غير صالح",
       "token_invalid_payload": "الحمولة الافتراضية للرمز غير صالحة",
       "token_invalid_structure": "الرمز ليس لديه الهيكل المتوقع",

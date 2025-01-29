@@ -1,6 +1,6 @@
 {
-  "error": {
-    "basalt-auth": {
+  "basalt-auth": {
+    "error": {
       "token_invalid_header": "トークンヘッダーが無効です",
       "token_invalid_payload": "トークンペイロードが無効です",
       "token_invalid_structure": "トークンの構造が期待されるものではありません",

@@ -9,8 +9,8 @@
     "ja",
     "ko"
   ],
-  "error": {
-    "basalt-auth": {
+  "basalt-auth": {
+    "error": {
       "token_invalid_header": {
         "lang:ar": "رأس الرمز غير صالح",
         "lang:de": "Der Token-Header ist ungültig",
