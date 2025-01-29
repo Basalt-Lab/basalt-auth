@@ -1,6 +1,6 @@
 {
-  "error": {
-    "basalt-auth": {
+  "basalt-auth": {
+    "error": {
       "token_invalid_header": "L'intestazione del token non è valida",
       "token_invalid_payload": "Il payload del token non è valido",
       "token_invalid_structure": "Il token non ha la struttura prevista",

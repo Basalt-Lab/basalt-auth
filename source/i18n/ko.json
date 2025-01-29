@@ -1,6 +1,6 @@
 {
-  "error": {
-    "basalt-auth": {
+  "basalt-auth": {
+    "error": {
       "token_invalid_header": "토큰 헤더가 유효하지 않습니다",
       "token_invalid_payload": "토큰 페이로드가 유효하지 않습니다",
       "token_invalid_structure": "토큰에 예상되는 구조가 없습니다",
