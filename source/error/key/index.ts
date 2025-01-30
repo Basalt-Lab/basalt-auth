@@ -1,1 +1,1 @@
-export * from './globalKeyError';
+export * from './tokenKeyError';

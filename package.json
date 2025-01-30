@@ -26,7 +26,6 @@
     "./auth": "./build/core/index.js",
     "./error": "./build/error/index.js",
     "./error/key": "./build/error/key/index.js",
-    "./i18n": "./build/i18n/index.js",
     "./types": "./build/types/index.js",
     ".": "./build/index.js"
   },
