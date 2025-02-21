@@ -1,4 +1,5 @@
-import { generateKeyPairSync, randomUUID, type KeyPairSyncResult } from 'crypto';
+import { generateKeyPairSync, type KeyPairSyncResult } from 'crypto';
+import { randomUUIDv7 } from 'bun';
 
 import type { KeyPairED25519 } from '#/types/data/keyPairED25519';
 
@@ -8,7 +9,7 @@ import type { KeyPairED25519 } from '#/types/data/keyPairED25519';
  * @returns The generated key pair with the passphrase. ({@link KeyPairED25519})
  */
 export function generateKeyPairED25519(): KeyPairED25519 {
-    const passphrase: string = randomUUID();
+    const passphrase: string = randomUUIDv7();
     const keyPair: KeyPairSyncResult<string, string> = generateKeyPairSync(
         'ed25519',
         {

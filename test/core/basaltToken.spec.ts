@@ -29,7 +29,7 @@ describe('BasaltTokenService', () => {
             const tokenResult: BasaltTokenSignResult = basaltToken.sign({});
             expect(() => {
                 basaltToken.verify('$$$$.$$$$', tokenResult.publicKey);
-            }).toThrow('error.basalt-auth.token_invalid_structure');
+            }).toThrow('Token structure is invalid.');
         });
 
         test('should throw an error if the token has expired', async () => {
@@ -37,7 +37,7 @@ describe('BasaltTokenService', () => {
             await Bun.sleep(2);
             expect(() => {
                 basaltToken.verify(tokenResult.token, tokenResult.publicKey);
-            }).toThrow('error.basalt-auth.token_is_expired');
+            }).toThrow('Token has expired.');
         });
 
         test('should throw an error if the token signature is invalid', () => {
@@ -46,10 +46,10 @@ describe('BasaltTokenService', () => {
             const mutedToken = basaltToken.sign(badPayload).token;
             expect(() => {
                 basaltToken.verify(tokenResult.token, 'invalidPublicKey');
-            }).toThrow('error.basalt-auth.token_signature_invalid');
+            }).toThrow('Token signature is invalid.');
             expect(() => {
                 basaltToken.verify(mutedToken, tokenResult.publicKey);
-            }).toThrow('error.basalt-auth.token_signature_invalid');
+            }).toThrow('Token signature is invalid.');
         });
     });
 
@@ -66,13 +66,13 @@ describe('BasaltTokenService', () => {
         });
 
         test('should throw an error if the token structure is invalid', () => {
-            expect(() => basaltToken.isExpired('$$$$.$$$$')).toThrow('error.basalt-auth.token_invalid_structure');
+            expect(() => basaltToken.isExpired('$$$$.$$$$')).toThrow('Token structure is invalid.');
         });
 
         test('should throw an error if header is invalid', () => {
             const tokenResult: BasaltTokenSignResult = basaltToken.sign({});
             const badToken = tokenResult.token.replace('e', 'a');
-            expect(() => basaltToken.isExpired(badToken)).toThrow('error.basalt-auth.token_invalid_header');
+            expect(() => basaltToken.isExpired(badToken)).toThrow('Token header is invalid.');
         });
     });
 
@@ -84,7 +84,7 @@ describe('BasaltTokenService', () => {
         });
 
         test('should throw an error if the token structure is invalid', () => {
-            expect(() => basaltToken.getPayload('$$$$.$$$$')).toThrow('error.basalt-auth.token_invalid_structure');
+            expect(() => basaltToken.getPayload('$$$$.$$$$')).toThrow('Token structure is invalid.');
         });
 
         test('should throw an error if payload is invalid', () => {
@@ -93,7 +93,7 @@ describe('BasaltTokenService', () => {
             const splittedToken = tokenResult.token.split('.');
             splittedToken[1] = 'badPayload';
             const mutedToken = splittedToken.join('.');
-            expect(() => basaltToken.getPayload(mutedToken)).toThrow('error.basalt-auth.token_invalid_payload');
+            expect(() => basaltToken.getPayload(mutedToken)).toThrow('Token payload is invalid.');
         });
     });
 
@@ -108,13 +108,13 @@ describe('BasaltTokenService', () => {
         });
 
         test('should throw an error if the token structure is invalid', () => {
-            expect(() => basaltToken.getHeader('$$$$.$$$$')).toThrow('error.basalt-auth.token_invalid_structure');
+            expect(() => basaltToken.getHeader('$$$$.$$$$')).toThrow('Token structure is invalid.');
         });
 
         test('should throw an error if header is invalid', () => {
             const tokenResult: BasaltTokenSignResult = basaltToken.sign({});
             const badToken = tokenResult.token.replace('e', 'a');
-            expect(() => basaltToken.getHeader(badToken)).toThrow('error.basalt-auth.token_invalid_header');
+            expect(() => basaltToken.getHeader(badToken)).toThrow('Token header is invalid.');
         });
     });
 
@@ -130,13 +130,13 @@ describe('BasaltTokenService', () => {
         });
 
         test('should throw an error if the token structure is invalid', () => {
-            expect(() => basaltToken.getIssuer('$$$$.$$$$')).toThrow('error.basalt-auth.token_invalid_structure');
+            expect(() => basaltToken.getIssuer('$$$$.$$$$')).toThrow('Token structure is invalid.');
         });
 
         test('should throw an error if header is invalid', () => {
             const tokenResult: BasaltTokenSignResult = basaltToken.sign({});
             const badToken = tokenResult.token.replace('e', 'a');
-            expect(() => basaltToken.getIssuer(badToken)).toThrow('error.basalt-auth.token_invalid_header');
+            expect(() => basaltToken.getIssuer(badToken)).toThrow('Token header is invalid.');
         });
     });
 
@@ -152,13 +152,13 @@ describe('BasaltTokenService', () => {
         });
 
         test('should throw an error if the token structure is invalid', () => {
-            expect(() => basaltToken.getAudience('$$$$.$$$$')).toThrow('error.basalt-auth.token_invalid_structure');
+            expect(() => basaltToken.getAudience('$$$$.$$$$')).toThrow('Token structure is invalid.');
         });
 
         test('should throw an error if header is invalid', () => {
             const tokenResult: BasaltTokenSignResult = basaltToken.sign({});
             const badToken = tokenResult.token.replace('e', 'a');
-            expect(() => basaltToken.getAudience(badToken)).toThrow('error.basalt-auth.token_invalid_header');
+            expect(() => basaltToken.getAudience(badToken)).toThrow('Token header is invalid.');
         });
     });
 
@@ -170,13 +170,13 @@ describe('BasaltTokenService', () => {
         });
 
         test('should throw an error if the token structure is invalid', () => {
-            expect(() => basaltToken.getExpirationDate('$$$$.$$$$')).toThrow('error.basalt-auth.token_invalid_structure');
+            expect(() => basaltToken.getExpirationDate('$$$$.$$$$')).toThrow('Token structure is invalid.');
         });
 
         test('should throw an error if header is invalid', () => {
             const tokenResult: BasaltTokenSignResult = basaltToken.sign({});
             const badToken = tokenResult.token.replace('e', 'a');
-            expect(() => basaltToken.getExpirationDate(badToken)).toThrow('error.basalt-auth.token_invalid_header');
+            expect(() => basaltToken.getExpirationDate(badToken)).toThrow('Token header is invalid.');
         });
     });
 
@@ -187,13 +187,13 @@ describe('BasaltTokenService', () => {
         });
 
         test('should throw an error if the token structure is invalid', () => {
-            expect(() => basaltToken.getTokenUuid('$$$$.$$$$')).toThrow('error.basalt-auth.token_invalid_structure');
+            expect(() => basaltToken.getTokenUuid('$$$$.$$$$')).toThrow('Token structure is invalid.');
         });
 
         test('should throw an error if header is invalid', () => {
             const tokenResult: BasaltTokenSignResult = basaltToken.sign({});
             const badToken = tokenResult.token.replace('e', 'a');
-            expect(() => basaltToken.getTokenUuid(badToken)).toThrow('error.basalt-auth.token_invalid_header');
+            expect(() => basaltToken.getTokenUuid(badToken)).toThrow('Token header is invalid.');
         });
     });
 });

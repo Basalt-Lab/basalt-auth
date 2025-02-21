@@ -1,8 +1,9 @@
 {
   "name": "@basalt-lab/basalt-auth",
-  "version": "1.9.4",
-  "description": "Authentication module for Basalt Framework",
+  "version": "1.9.5-canary-20250130-cf0028a",
+  "description": "A sample authentication library each token has key pair (public and private)",
   "keywords": [
+    "bun",
     "basalt-auth",
     "basalt",
     "auth",
@@ -25,13 +26,12 @@
     "./auth": "./build/core/index.js",
     "./error": "./build/error/index.js",
     "./error/key": "./build/error/key/index.js",
-    "./i18n": "./build/i18n/index.js",
     "./types": "./build/types/index.js",
     ".": "./build/index.js"
   },
   "scripts": {
     "dev": "bun --watch source/index.ts",
-    "build": "bun bundler.ts",
+    "build": "bun bundler.ts && tsc --project tsconfig.dts.json && tsc-alias -p tsconfig.dts.json",
     "start": "bun build/index.js",
     "test": "bun test --coverage",
     "docs": "typedoc",
@@ -39,18 +39,18 @@
     "lint": "eslint ./source"
   },
   "devDependencies": {
-    "@eslint/js": "^9.17.0",
-    "@stylistic/eslint-plugin": "^2.12.1",
-    "@types/bun": "^1.1.15",
-    "@types/node": "^22.10.5",
-    "bun-plugin-dts": "^0.3.0",
+    "@eslint/js": "^9.19.0",
+    "@stylistic/eslint-plugin": "^3.0.1",
+    "@types/bun": "^1.2.1",
+    "eslint": "^9.19.0",
     "eslint-plugin-tsdoc": "^0.4.0",
-    "eslint": "^9.17.0",
-    "typescript-eslint": "^8.19.1",
-    "typedoc": "^0.27.6"
+    "globals": "^15.14.0",
+    "tsc-alias": "^1.8.10",
+    "typedoc": "^0.27.6",
+    "typescript-eslint": "^8.22.0"
   },
   "peerDependencies": {
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   },
   "changelog": {
     "types": {
